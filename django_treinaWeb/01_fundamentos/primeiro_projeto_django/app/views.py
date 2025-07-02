@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 import datetime
 
 # Create your views here.
@@ -6,4 +6,4 @@ import datetime
 
 def home(request):
     time_current = datetime.datetime.now()
-    return HttpResponse(time_current)
+    return render(request, 'app/home.html', {'time_current': time_current})
