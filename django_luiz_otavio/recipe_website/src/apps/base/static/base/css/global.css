@@ -35,11 +35,13 @@
             --font-headings: 'Roboto Slab', serif;
             --spacing-gutter-medium: 3rem;
             --spacing-gutter-large: 4rem;
+            --border-radius-default: 8px;
         }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 /* configuração para 1rem equivaler 10px */
@@ -50,6 +52,7 @@ html {
 body {
     font-family: 1.6rem;
     font-family: var(--font-primary);
+    background-color: var(--color-gray-1);
 }
 /* fim da configuração do rem */
 
@@ -86,3 +89,65 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ***** Header-end ***** */
+
+/* ***** Search ***** */
+.search-container .container .search-form {
+    max-width: 64rem;
+    margin: 0 auto;
+    border: .2rem solid var(--color-primary-dark);
+    border-radius: var(--border-radius-default);
+    transition: all 300ms ease-in-out;
+}
+
+.search-container .container .search-form:focus-within {
+    border-color: var(--color-primary);
+    background-color: var(--color-white);
+}
+
+.search-container .container .search-form:focus-within .search-button {
+    color: var(--color-primary);
+    transition: all 300ms ease-in-out;
+}
+
+.search-container .container .search-form .search-input, 
+.search-container .container .search-form .search-button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.search-container .container .search-form .search-input {
+    width: 95%;
+    padding: 1.5rem;
+}
+
+.search-container .container .search-form .search-button:focus {
+    outline: 1px solid var(--color-primary);
+    background-color: var(--color-white);
+}
+
+
+/* ***** Search-end ***** */
+
+
+/* ***** Main ***** */
+.main-content-container .container .main-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+    gap: var(--spacing-gutter-large);
+}
+
+.main-content-container .container .main-list .card-recipes {
+   max-width: 64rem;
+}
+
+.main-content-container .container .main-list .card-recipes .card-item {
+
+}
+
+.main-content-container .container .main-list .card-recipes .card-item .recipes-cover img{
+    max-width: 100%;
+}
+
+
+/* ***** Main-end ***** */

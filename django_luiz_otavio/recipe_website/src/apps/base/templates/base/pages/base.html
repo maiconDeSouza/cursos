@@ -5,15 +5,36 @@
     <title>Recipes</title>
 </head>
 <body>
-    <header class="main-header-container">
-        <div class="main-header container">
-            <h1>
-                <a href="" class="main-logo">
-                    <i class="fa-solid fa-utensils main-logo-icon"></i>
-                    <span class="main-logo-text">Recipes</span>
-                </a>
-            </h1>
+    {% include "base/partials/header.html" %}
+    {% include "base/partials/search.html" %}
+
+    <main class="main-content-container">
+        <div class="container">
+            <ul class="main-list">
+                <li class="card-recipes">
+                    <article class="card-item">
+                        <header class="recipes-cover">
+                            <img src="https://placehold.co/1280x720/orange/white" alt="">
+                        </header>
+                    </article>
+                </li>
+                <li class="card-recipes">
+                    <article class="card-item">
+                        <header class="recipes-cover">
+                            <img src="https://placehold.co/1280x720/orange/white" alt="">
+                        </header>
+                    </article>
+                </li>
+                <li class="card-recipes">
+                    <article class="card-item">
+                        <header class="recipes-cover">
+                            <img src="https://placehold.co/1280x720/orange/white" alt="">
+                        </header>
+                    </article>
+                </li>
+                
+            </ul>
         </div>
-    </header>
+    </main>
 </body>
 </html>
