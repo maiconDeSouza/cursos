@@ -36,6 +36,7 @@
             --spacing-gutter-medium: 3rem;
             --spacing-gutter-large: 4rem;
             --border-radius-default: 8px;
+            --transiton-default: all 300ms ease-in-out;
         }
 * {
     margin: 0;
@@ -94,9 +95,12 @@ h1, h2, h3, h4, h5, h6 {
 .search-container .container .search-form {
     max-width: 64rem;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-inline: 1.5rem;
     border: .2rem solid var(--color-primary-dark);
     border-radius: var(--border-radius-default);
-    transition: all 300ms ease-in-out;
+    transition: var(--transiton-default);
 }
 
 .search-container .container .search-form:focus-within {
@@ -106,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .search-container .container .search-form:focus-within .search-button {
     color: var(--color-primary);
-    transition: all 300ms ease-in-out;
+    transition: var(--transiton-default);
 }
 
 .search-container .container .search-form .search-input, 
@@ -117,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-container .container .search-form .search-input {
-    width: 95%;
+    flex: 1;
     padding: 1.5rem;
 }
 
@@ -137,16 +141,28 @@ h1, h2, h3, h4, h5, h6 {
     gap: var(--spacing-gutter-large);
 }
 
-.main-content-container .container .main-list .card-recipes {
+.main-content-container .container .main-list li.card-recipes {
    max-width: 64rem;
+   height: 40rem;
+   border-radius: var(--border-radius-default);
+   overflow: hidden; 
+   box-shadow: -5px 5px 15px rgba(0, 0, 0, .2);
+   transition: var(--transiton-default);
 }
 
-.main-content-container .container .main-list .card-recipes .card-item {
+.main-content-container .container .main-list li.card-recipes:hover {
+    transform: scale(1.02);
+   box-shadow: -5px 5px 15px rgba(0, 0, 0, .5);
 
 }
 
-.main-content-container .container .main-list .card-recipes .card-item .recipes-cover img{
+.main-content-container .container .main-list .card-recipes article.card-item {
+    background-color: var(--color-white);
+}
+
+.main-content-container .container .main-list li.card-recipes article.card-item header.recipes-cover img{
     max-width: 100%;
+    object-fit: cover;
 }
 
 
