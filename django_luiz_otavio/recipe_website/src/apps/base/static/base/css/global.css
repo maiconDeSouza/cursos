@@ -176,6 +176,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-content-container .container .main-list li.card-recipes article.card-item main.recipes-main .recipes-card-title-container h2 {
     font-size: 2rem;
+    text-align: center;
 }
 
 .main-content-container .container .main-list li.card-recipes article.card-item main.recipes-main .recipes-card-author-container ul {
@@ -243,3 +244,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ***** Main-end ***** */
+
+/* ***** Footer ***** */
+footer.recipes-footer {
+    background-color: var(--color-primary-dark);
+}
+
+footer.recipes-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+footer.recipes-footer .container div a {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+}
+
+footer.recipes-footer .container div a:hover {
+    color: var(--color-info-light);
+}
+
+/* ***** Footer-end ***** */
