@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-content-container .container .main-list li.card-recipes:hover {
-    transform: scale(1.02);
+   transform: scale(1.02);
    box-shadow: -8px 8px 18px rgba(0, 0, 0, .5);
 
 }
