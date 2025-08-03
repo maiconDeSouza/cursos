@@ -266,3 +266,106 @@ footer.recipes-footer .container div a:hover {
 }
 
 /* ***** Footer-end ***** */
+
+
+/* ***** Recipe Detail ***** */
+.main-recipe-detail {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-card-detail {
+    max-width: 82rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    overflow: hidden; 
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, .2);
+}
+
+.recipe-card-detail img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.recipe-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-gutter-medium);
+}
+
+.recipe-card-title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-card-title-container h1 {
+    font-size: 5rem;
+}
+
+.recipe-card-author-container ul {
+    display: flex;
+    gap: .4rem;
+} 
+
+.recipe-card-author-container ul li span,
+.recipe-card-author-container ul li i {
+    font-size: 1.2rem;
+    color: var(--color-gray-4);
+}
+
+.recipe-card-author-container ul li a span,
+.recipe-card-author-container ul li a i {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    transition: var(--transiton-default);
+}
+
+.recipe-card-author-container ul li a:hover span,
+.recipe-card-author-container ul li a:hover i {
+    color: var(--color-primary);
+}
+
+.recipe-card-description-container p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.recipe-card-meta-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.recipe-card-meta-container i,
+.recipe-card-meta-container span {
+    font-size: 2rem;
+}
+
+.recipe-card-meta-container .recipe-card-meta-duration,
+.recipe-card-meta-container .recipe-card-meta-preparation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.recipe-card-footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: var(--spacing-gutter-medium);
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    font-size: 1.4rem;
+    transition: var(--transiton-default);
+}
+
+.recipe-card-footer a:hover {
+    background-color: var(--color-primary-dark-hover);
+}
+
+/* ***** Recipe Detail - end ***** */
+
+

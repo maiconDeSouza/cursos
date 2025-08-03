@@ -2,21 +2,11 @@
 <html lang="pt-BR">
 <head>
     {% include "base/partials/head.html" %}
-    <title>Recipes</title>
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
     {% include "base/partials/header.html" %}
-    {% include "base/partials/search.html" %}
-    {% include "base/partials/main-card-list.html" %}
-    <footer class="recipes-footer">
-        <div class="container">
-            <div>
-                <a href="">By Maicon Souza</a>
-            </div>
-            <div>
-                <a href="">Powerred Django</a>
-            </div>
-        </div>
-    </footer>
+    {% block content %}{% endblock content %}
+    {% include "base/partials/footer.html" %}
 </body>
 </html>
