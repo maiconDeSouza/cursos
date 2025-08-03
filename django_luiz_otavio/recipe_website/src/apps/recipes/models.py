@@ -3,8 +3,11 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 
 
-class Category(models.Model):
+class Categorie(models.Model):
     name = models.CharField(max_length=65)
+
+    def __str__(self):
+        return self.name
 
 
 # Create your models here.
@@ -23,11 +26,16 @@ class Recipe(models.Model):
     is_published = models.BooleanField(default=False)
     cover = models.ImageField(upload_to='recipes/covers/%Y/%M/%d/')
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(
+        Categorie, on_delete=models.SET_NULL, null=True
+    )
+
+    def __str__(self):
+        return self.title
 
     def save(self, *args, **kwargs):
         if not self.slug:  # só cria se estiver vazio
-            base_slug = slugify(self.name)
+            base_slug = slugify(self.title)
             slug = base_slug
             counter = 1
             while Recipe.objects.filter(slug=slug).exists():

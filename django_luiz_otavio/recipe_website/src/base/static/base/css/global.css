@@ -202,7 +202,9 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
 }
 
+
 .main-content-container .container .main-list li.card-recipes article.card-item main.recipes-main .recipes-card-description-container p {
+    height: 8.5rem;
     font-size: 1.6rem;
     line-height: 2rem;
     text-align: center;

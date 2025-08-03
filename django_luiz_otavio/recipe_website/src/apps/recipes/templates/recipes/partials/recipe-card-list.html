@@ -1,0 +1,55 @@
+<li class="card-recipes">
+    <article class="card-item">
+        <header class="recipes-cover">
+            <img src="{{ recipe.cover.url }}" alt="">
+        </header>
+        <main class="recipes-main">
+            <section class="recipes-card-title-container">
+            <h2>{{ recipe.title }}</h2>
+            </section>
+            <section class="recipes-card-author-container">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <span><strong>{{ recipe.author.username }}</strong></span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>{{ recipe.created_at|date:"d/m/Y" }} às {{ recipe.created_at|date:"H:i" }}</span>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>{{ recipe.category.name }}</span>
+                    </a>
+                </li>
+            </ul>
+            </section>
+            <section class="recipes-card-description-container">
+            <p>
+                {{ recipe.description }}
+            </p>
+            </section>
+            <section class="recipes-card-meta-container">
+            <div class="recipes-card-meta-duration">
+                <i class="fa-solid fa-clock"></i>
+                <span>
+                    {{ recipe.preparetion_time }} {{ recipe.preparetion_unit }}
+                </span>
+            </div>
+            <div class="recipes-card-meta-preparation">
+                <i class="fa-solid fa-pizza-slice"></i>
+                <span>
+                    {{ recipe.servings }} {{ recipe.servings_unit }}
+                </span>
+            </div>
+            </section>
+        </main>
+        <footer class="recipes-card-footer">
+            <a href="">
+                <i class="fa-solid fa-eye"></i>
+                <span>ver mais...</span>
+            </a>
+        </footer>
+    </article>
+</li>
