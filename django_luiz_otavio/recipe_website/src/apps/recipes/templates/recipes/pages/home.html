@@ -1,5 +1,5 @@
 {% extends "base/pages/base.html" %}
-{% block title %}Recipes{% endblock title %}
+{% block title %}Recipes {% if is_category %}|{{category}}{% endif %}{% endblock title %}
 {% block content %}
     {% include "recipes/partials/search.html" %}
     {% include "recipes/partials/main-card-list.html" %}

@@ -3,7 +3,9 @@
         <ul class="main-list">
             {% for recipe in recipes %}
                 {% include "recipes/partials/recipe-card-list.html" %}
-            {% endfor %}      
+            {% empty %}
+                <h1>Nenhuma receita cadastrada 😭</h1>
+            {% endfor %}  
         </ul>
     </div>
 </main>

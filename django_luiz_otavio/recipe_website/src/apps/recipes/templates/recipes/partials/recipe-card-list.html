@@ -18,7 +18,7 @@
                     <span>{{ recipe.created_at|date:"d/m/Y" }} às {{ recipe.created_at|date:"H:i" }}</span>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{% url "recipes:category" recipe.category.name %}">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>{{ recipe.category.name }}</span>
                     </a>
@@ -46,7 +46,7 @@
             </section>
         </main>
         <footer class="recipes-card-footer">
-            <a href="">
+            <a href="{% url "recipes:recipe_detail" recipe.slug %}">
                 <i class="fa-solid fa-eye"></i>
                 <span>ver mais...</span>
             </a>
