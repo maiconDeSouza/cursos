@@ -10,6 +10,33 @@ class Categorie(models.Model):
         return self.name
 
 
+class RecipeQuerySet(models.QuerySet):
+    def recipes_published_order_by(self):
+        return self.filter(is_published=True).order_by('-created_at')
+
+    def category_published_order_by(self, category_name):
+        return self.filter(
+            category__name=category_name, is_published=True
+        ).order_by('-created_at')
+
+    def by_slug_published_order_by(self, slug):
+        return self.filter(slug=slug, is_published=True)
+
+
+class RecipePublishedManager(models.Manager):
+    def get_queryset(self):
+        return RecipeQuerySet(self.model, using=self._db)
+
+    def recipes(self):
+        return self.get_queryset().recipes_published_order_by()
+
+    def category(self, category_name):
+        return self.get_queryset().category_published_order_by(category_name)
+
+    def by_slug(self, slug):
+        return self.get_queryset().by_slug_published_order_by(slug)
+
+
 # Create your models here.
 class Recipe(models.Model):
     title = models.CharField(max_length=100)
@@ -32,6 +59,8 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+    published = RecipePublishedManager()
 
     def save(self, *args, **kwargs):
         if not self.slug:  # só cria se estiver vazio

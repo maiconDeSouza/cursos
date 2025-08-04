@@ -18,9 +18,7 @@ class Home(View):
 
 class Recipes(View):
     def get(self, request):
-        recipes_published_all = Recipe.objects.filter(
-            is_published=True
-        ).order_by('-created_at')
+        recipes_published_all = Recipe.published.recipes()
 
         context = {'recipes': recipes_published_all}
 
@@ -30,9 +28,7 @@ class Recipes(View):
 class Category(View):
     def get(self, request, category_name):
         recipes_category = get_list_or_404(
-            Recipe.objects.order_by('-created_at'),
-            category__name=category_name,
-            is_published=True,
+            Recipe.published.category(category_name)
         )
 
         context = {
@@ -46,7 +42,7 @@ class Category(View):
 
 class RecipeDetail(View):
     def get(self, request, slug):
-        recipe = get_object_or_404(Recipe, slug=slug)
+        recipe = get_object_or_404(Recipe.published.by_slug(slug))
 
         context = {'recipe': recipe}
 
