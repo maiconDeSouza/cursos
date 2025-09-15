@@ -26,7 +26,7 @@
                     </li>
                 </ul>
             </nav>
-            <button type="button" class="button-search">
+            <button type="button" class="button-search" id="open-search">
                 <i class="bi bi-search"></i>
                 <span>Buscar Posts...</span>
             </button>
@@ -46,5 +46,35 @@
             </nav>
         </div>
     </header>
+    <header class="header-mobile">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">
+                        <h2>MyBlog</h2>
+                    </a>
+                </li>
+                <li>
+                    <button type="button" class="button-search" id="open-search-mobile">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button type="button" class="button-hamburguer">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <dialog id="search-dialog">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="search" name="" id="">
+            <button type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+        </form>
+        <button class="close-search">X</button>
+    </dialog>
 </body>
 </html>

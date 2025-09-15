@@ -183,11 +183,13 @@ body {
 }
 
 .header-main {
-    position: relative;
+    position: fixed;
+    width: 100vw;
     background-color: var(--purple-700);
     padding-block: var(--space-4);
     color: var(--gray-200);
 }
+
 
 .header-main a {
     transition: var(--transition-medium);
@@ -251,4 +253,125 @@ body {
 
 .header-main .button-search i {
     font-size: 1rem;
+}
+
+#search-dialog {
+    width: 100vw;
+    max-width: var(--container-max-width);
+    height: 15rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--purple-900);
+    border-radius: var(--border-radius);
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+
+}
+
+#search-dialog::backdrop {
+  background: rgba(0,0,0,0.45);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(2px);
+}
+
+#search-dialog form {
+    width: 60%;
+    padding: var(--space-3);
+    border: 2px solid var(--purple-900);
+    border-radius: 8px;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    
+}
+
+#search-dialog form input {
+   flex: 1;
+   padding: var(--space-3);
+   border-radius: 8px;
+   border: none;
+   background: transparent;
+   outline: none;
+   color: var(--gray-50);
+   font-size: 1.2rem;
+}
+
+#search-dialog form button {
+    background: transparent;
+    border: none;
+    color: var(--gray-50);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#search-dialog .close-search {
+    position: absolute;
+    right: 0.1875rem;
+    top: 0.1875rem;
+    padding: var(--space-1);
+    background-color: var(--red-500);
+    color: var(--gray-50);
+    font-weight: 900;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.header-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header-main { display: none; }   /* oculta header desktop */
+
+    .header-mobile {
+        width: 100vw;
+        position: fixed;
+        display: block; 
+        padding: var(--space-4);
+        background: var(--purple-700);
+        color: var(--gray-50); 
+    }
+
+    .header-mobile nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-mobile nav ul li button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .header-mobile nav ul li button i {
+        font-size: 1.2rem;
+        color: var(--gray-50);
+    }
+
+    .header-mobile nav ul li button i:nth-of-type(2) {
+        font-size: 2rem;
+    }
+
+    .header-mobile nav ul li:nth-of-type(2) {
+        display: flex;
+        gap: var(--space-4);
+    }
+
+    .header-mobile nav ul li:nth-of-type(2) button i:nth-of-type(2) {
+        font-size: 2rem;
+    }
+     
 }
