@@ -31,7 +31,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+THIRD_PARTIES_APPS = []
+
+MY_BLOG_APPS = [
+    'apps.base.apps.BaseConfig',
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTIES_APPS + MY_BLOG_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

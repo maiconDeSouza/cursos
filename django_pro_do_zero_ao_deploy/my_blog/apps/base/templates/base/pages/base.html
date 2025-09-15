@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include "base/partials/head.html" %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header class="header-main">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">
+                            <h2>MyBlog</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Sobre o Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Todos os Posts
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button type="button" class="button-search">
+                <i class="bi bi-search"></i>
+                <span>Buscar Posts...</span>
+            </button>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Cadastra-se
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
