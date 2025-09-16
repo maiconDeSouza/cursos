@@ -136,10 +136,10 @@
   --border-radius: 8px;
 
    /* Sombra */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-  --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.15);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.25);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.30);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.35);
 
   /* Container máximo para centralizar conteúdo */
   --container-max-width: 72rem; /* ex: 1152px se 1rem=16px */
@@ -187,7 +187,12 @@ body {
     width: 100vw;
     background-color: var(--purple-700);
     padding-block: var(--space-4);
-    color: var(--gray-200);
+    color: var(--gray-300);
+    box-shadow: var(--shadow-xl);
+}
+
+.header-main .nav-mobile {
+    display: none;
 }
 
 .header-main .nav-desktop {
@@ -201,6 +206,17 @@ body {
     gap: var(--space-4);
     align-items: center;
 }
+
+.header-main .nav-desktop ul li a {
+    transition: var(--transition-medium);
+}
+
+.header-main .nav-desktop ul li a:hover {
+    color: white;
+    transform: rotate(-10deg);
+    color: white;
+}
+
 
 .header-main .nav-desktop button {
     position: absolute;
@@ -237,7 +253,29 @@ body {
     color: var(--gray-50);
 }
 
-/* @media (max-width: 768px) {
-   
+@media (max-width: 768px) {
+   .header-main .nav-desktop {
+    display: none;
+   }
+
+   .header-main .nav-mobile {
+    display: flex;
+    justify-content: space-between;
+   }
+
+   .header-main .nav-mobile ul:nth-of-type(2) button {
+    background: transparent;
+    border: none;
+   }
+
+   .header-main .nav-mobile ul:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+   }
+
+   .header-main .nav-mobile ul:nth-of-type(2) i {
+    font-size: 1.3rem;
+   }
      
-} */
+}
