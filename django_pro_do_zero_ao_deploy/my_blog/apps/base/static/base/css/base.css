@@ -253,7 +253,100 @@ body {
     color: var(--gray-50);
 }
 
-@media (max-width: 768px) {
+#search-dialog {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(128, 0, 128, 0.5);
+}
+
+#search-dialog.open {
+    display: block;
+}
+
+#search-dialog form {
+    position: relative;
+    margin: 5rem auto;
+    width: 30rem;
+    max-width: 90%;
+    height: 10rem;
+    padding: var(--space-10);
+    background-color: var(--indigo-900);
+    border: 1px solid var(--indigo-900);
+    border-radius: var(--border-radius);
+}
+
+#search-dialog form div {
+    padding: var(--space-3);
+    background-color: #090a11;
+    border: 3px solid var(--purple-700);
+    border-radius: var(--border-radius);
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+#search-dialog form .close-search {
+    position: absolute;
+    right: .2rem;
+    top: .2rem;
+    padding: var(--space-1);
+    background-color: var(--red-500);
+    color: var(--gray-50);
+    font-weight: 900;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#search-dialog form div input {
+    flex: 1;
+    padding: var(--space-3);
+    background-color: transparent;
+    border: none;
+    color: var(--gray-50);
+    outline: none;
+}
+
+#search-dialog form div button {
+    background: transparent;
+    border: none;
+}
+
+#search-dialog form div button i {
+    font-size: 1.5rem;
+    color: var(--indigo-100);
+}
+
+#menu-dialog-mobile {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(128, 0, 128, 0.5);
+}
+
+#menu-dialog-mobile.open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-dialog-mobile ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#menu-dialog-mobile ul li a {
+    display: block;
+    font-weight: 900;
+    color: var(--amber-50);
+}
+
+@media (max-width: 980px) {
    .header-main .nav-desktop {
     display: none;
    }
@@ -265,16 +358,17 @@ body {
 
    .header-main .nav-mobile ul:nth-of-type(2) button {
     background: transparent;
+    color: var(--gray-300);
     border: none;
    }
 
    .header-main .nav-mobile ul:nth-of-type(2) {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-4);
    }
 
-   .header-main .nav-mobile ul:nth-of-type(2) i {
+   .header-main .nav-mobile ul:nth-of-type(2) button i {
     font-size: 1.3rem;
    }
      
