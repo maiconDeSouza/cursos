@@ -35,3 +35,11 @@
         line-height: 1.5;
     }
 }
+
+.ex5 {
+    height: 100vh;
+    background-image: url('./imagens/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+}
