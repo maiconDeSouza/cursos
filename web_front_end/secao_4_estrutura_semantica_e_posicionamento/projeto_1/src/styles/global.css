@@ -20,7 +20,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 25rem 1fr 8rem;
+    grid-template-rows: auto 1fr auto;
     background-color: var(--color-bg);
 
 }

@@ -1,6 +1,7 @@
 @import url('./global.css');
 
-header.banner {
+header#hero {
+    height: 25rem;
     padding: 1rem;
     background-image: url('../images/bg-3.jpg');
     background-repeat: no-repeat;
@@ -38,10 +39,11 @@ header.banner {
 
         h1 {
             font-size: 3rem;
+            text-transform: uppercase;
             color: var(--color-bg-card);
         }
 
-        span {
+        p {
             padding: 1rem;
             background-color: rgba(0, 0, 0, 0.5);
             color: var(--color-bg-card);
@@ -51,7 +53,7 @@ header.banner {
     }
 }
 
-main.content {
+main#content {
     padding: 1rem;
 
     ul {
@@ -61,6 +63,7 @@ main.content {
         gap: 2rem;
 
         li {
+            flex: 1;
             width: 80%;
             padding: 1rem;
             background-color: var(--color-bg-card);
@@ -89,7 +92,8 @@ main.content {
     }
 }
 
-footer.end {
+footer#end {
+    height: 8rem;
     padding: 1rem;
     background-color: var(--color-bg-footer);
     display: flex;
@@ -100,7 +104,7 @@ footer.end {
 
 
 @media (max-width: 768px) {
-    header.banner {
+    header#hero {
         .title {
             gap: 1rem;
 
@@ -108,19 +112,19 @@ footer.end {
                 font-size: 1.7rem;
             }
 
-            span {
+            p {
                 font-size: .8rem;
             }
         }
     }
 
-    main.content {
+    main#content {
         ul {
             li {
                 width: 100%;
 
                 article {
-                    main {
+                    section {
                         p {
                             line-height: 1.8;
                         }

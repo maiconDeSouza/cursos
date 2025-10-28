@@ -10,8 +10,8 @@
     <title>CURSOS SERFRONTEND</title>
 </head>
 <body>
-    <header class="banner">
-        <nav>
+    <header id="hero">
+        <nav aria-label="Menu de navegação principal">
             <ul>
                 <li>
                     <a href="#">Início</a>
@@ -25,18 +25,18 @@
             </ul>
         </nav>
         <section class="title">
-            <h1>CURSOS SERFRONTEND</h1>
-            <span>Tudo o que precisa saber para iniciar na carreira</span>
+            <h1>Curso Serfrontend</h1>
+            <p>Tudo o que precisa saber para iniciar na carreira</p>
         </section>
     </header>
-    <main class="content">
-        <ul>
+    <main id="content">
+        <ul aria-label="lista de cursos">
             <li>
                 <article>
                     <header class="html">
                         <h2>O HTML</h2>
                     </header>
-                    <main>
+                    <section>
                         <p>
                             HTML (Linguagem de Marcação de HiperTexto) é o bloco 
                             de construção mais básico da web. Define o significado 
@@ -45,9 +45,11 @@
                             aparência/apresentação (CSS) ou a funcionalidade/
                             comportamento (JavaScript) de uma página da web.
                         </p>
-                    </main>
+                    </section>
                     <footer>
-                        <a href="#" class="html">Saiba mais</a>
+                        <a href="#" class="html" aria-label="Saiba mais sobre o curso HTML">
+                            Saiba mais
+                        </a>
                     </footer>
                 </article>
             </li>
@@ -56,7 +58,7 @@
                     <header class="css">
                         <h2>O CSS</h2>
                     </header>
-                    <main>
+                    <section>
                         <p>
                             CSS (Cascading Style Sheets ou Folhas de Estilo em 
                             Cascata) é uma linguagem de estilo (en-US) usada para 
@@ -65,9 +67,11 @@
                             MathML ou XHTML). O CSS descreve como elementos são 
                             mostrados na tela, no papel, na fala ou em outras mídias.
                         </p>
-                    </main>
+                    </section>
                     <footer>
-                        <a href="#" class="css">Saiba mais</a>
+                        <a href="#" class="css" aria-label="Saiba mais sobre curso de CSS">
+                            Saiba mais
+                        </a>
                     </footer>
                 </article>
             </li>
@@ -76,7 +80,7 @@
                     <header class="js">
                         <h2>O Javascript</h2>
                     </header>
-                    <main>
+                    <section>
                         <p>
                             JavaScript® (às vezes abreviado para JS) é uma linguagem 
                             leve, interpretada e baseada em objetos com funções de 
@@ -89,16 +93,18 @@
                             e declarativos (como por exemplo a programação funcional). 
                             Saiba mais sobre o JavaScript.
                         </p>
-                    </main>
+                    </section>
                     <footer>
-                        <a href="#" class="js">Saiba mais</a>
+                        <a href="#" class="js" aria-label="Saiba mais sobre o curso de Javascript">
+                            Saiba mais
+                        </a>
                     </footer>
                 </article>
             </li>
         </ul>
     </main>
-    <footer class="end">
-        <span>Copyright © 2016</span>
+    <footer id="end">
+        <small>Copyright © <time datetime="2025">2025</time></small>
     </footer>
 </body>
 </html>
