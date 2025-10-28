@@ -1,0 +1,41 @@
+:root {
+    --color-bg: #cccccc;
+    --color-bg-button-nav: #807f78;
+    --color-bg-footer: #6b6c68;
+    --color-bg-card: #fff;
+    --color-text: #000;
+    --color-html: #E34C26;
+    --color-css: #00A4D5;
+    --color-js: #F0DB4F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 25rem 1fr 8rem;
+    background-color: var(--color-bg);
+
+}
+
+.html {
+    background-color: var(--color-html);
+    color: #fff;
+}
+
+.css {
+    background-color: var(--color-css);
+    color: #fff;
+}
+
+.js {
+    background-color: var(--color-js);
+    color: #fff;
+}
