@@ -1,7 +1,7 @@
 @import url('./global.css');
 
 main {
-    width: 80%;
+    width: 90%;
     max-width: 25rem;
     height: 90%;
     max-height: 28.125rem;
@@ -12,24 +12,63 @@ main {
 
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 
+    h1 {
+        text-align: center;
+    }
+
     .contact_list {
         width: 100%;
         height: 100%;
-        padding: 1rem;
 
         .contact  {
+            padding: 1rem;
             border-bottom: 1px solid var(--color-tertiary);
             padding-block: 1rem;
+
+            &:hover {
+                background-color: var(--color-hover);
+            }
+
+            &:hover .edit {
+                display: flex;
+            }
 
             article {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                gap: 1.5rem;
+                gap: 1rem;
+
+                position: relative;
 
                 aside img {
                     width: 3.75rem;
                     border-radius: 50%;
+                }
+
+                .data {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: .8rem;
+                  
+
+                    header .name {
+                        font-size: 1.5rem;
+                        color: var(--color-tertiary);
+                    }
+
+                    footer .email {
+                        color: var(--color-quarantine);
+                    }
+                }
+
+                .edit {
+                    position: absolute;
+                    display: none;
+                    align-items: center;
+                    gap: .5rem;
+                    right: 0;
                 }
             }
         }
