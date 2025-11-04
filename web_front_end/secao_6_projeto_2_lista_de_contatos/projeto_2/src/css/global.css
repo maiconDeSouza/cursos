@@ -18,7 +18,8 @@
 }
 
 body {
-    height: 100dvh;
+    min-height: 100dvh;
+    padding-block: 2rem;
     background-color: var(--color-primary);
     font-family: "Lato", sans-serif;
 
