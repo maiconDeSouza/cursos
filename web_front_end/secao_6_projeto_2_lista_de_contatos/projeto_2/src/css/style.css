@@ -26,6 +26,7 @@ main {
 
         .contact  {
             flex-basis: 13.5rem;
+            height: 30rem;
             background-color: var(--color-tone-white);
             article {
                 display: flex;

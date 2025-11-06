@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300..700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+:root {
+    --color-bg: #8584b4;
+    --color-card: #9bd9ff;
+    --color-bg-card: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: "Quicksand", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Pacifico", cursive;
+}
+
+body, main {
+    width: 100%;
+    height: 100dvh;
+}
+
+main {
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    width: 20rem;
+    height: 30rem;
+    background-color: var(--color-bg-card);
+    border-radius: 12px;
+    box-shadow: -10px 10px 16px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.card header {
+    height: 30%;
+    background-color: var(--color-card);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    position: relative;
+}
+
+.card header .profile {
+    width: 6rem;
+    border-radius: 50%;
+    border: 6px solid var(--color-bg-card);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.card header .plus {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-card);
+    border-radius: 50%;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.5);
+    
+    position: absolute;
+    right: -14px;
+    top: -14px;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+}
+
+.card header .plus i {
+    color: var(--color-bg-card);
+    font-size: 1.5rem;
+}
+
+.content {
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.content .title {
+    text-align: center;
+}
+
+.content .bio {
+    flex: 1;
+    text-align: center;
+}
+
+.content .list-social {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.content .list-social li a {
+    color: #aeaeae;
+    transition: all .3s ease-in-out
+    ;
+}
+
+.content .list-social li a:hover {
+    color: #181818;
+}
