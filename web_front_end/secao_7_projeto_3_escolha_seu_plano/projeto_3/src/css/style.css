@@ -82,7 +82,7 @@
             li.card {
                 width: 90%;
                 max-width: 21.875rem;
-                height: 25rem;
+            
                 background-color: var(--color-bg-card);
                 border-radius: 8px;
 
@@ -102,7 +102,7 @@
                     }
 
                     .content {
-                        flex: 1;
+                        
 
                         display: flex;
                         flex-direction: column;
@@ -130,6 +130,7 @@
                     }
 
                     button {
+                        margin-block-start: auto;
                         background-color: var(--color-primary);
                         padding: 1rem;
                         border: none;
