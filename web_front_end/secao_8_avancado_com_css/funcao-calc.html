@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --header-height: 5rem;
+            --footer-height: 3rem;
+            --main-height: 100dvh;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            height: var(--header-height);
+            background-color: aquamarine;
+        }
+
+        main {
+            height: calc(var(--main-height) - var(--header-height) - var(--footer-height));
+            background-color: gray;
+        }
+
+        footer {
+            height: var(--footer-height);
+            background-color: chartreuse;
+        }
+    </style>
+    <title>Função Calc</title>
+</head>
+<body>
+    <header>header</header>
+    <main>main</main>
+    <footer>footer</footer>
+</body>
+</html>
