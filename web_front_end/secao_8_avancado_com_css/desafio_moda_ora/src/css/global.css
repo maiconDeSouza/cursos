@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Viaoda+Libre&display=swap');
+
+:root {
+    --color-background-top-header: #162028;
+    --color-text-menu: #425564;
+    --color-text: #555;
+    --color-background-details: #003d52;
+    --color-background-footer: #0b171f;
+    --color-text-footer: #6f8597;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Viaoda Libre", serif;
+}
