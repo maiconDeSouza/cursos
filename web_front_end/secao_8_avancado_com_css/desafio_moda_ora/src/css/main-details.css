@@ -1,0 +1,30 @@
+#details {
+    height: 70dvh;
+    background-color: var(--color-background-details);
+    background-image: url('../images/bg_detalhe.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+#details div {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+#details div h2 {
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: .250rem;
+}
+
+#details div p {
+    width: 70%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #fff;
+}

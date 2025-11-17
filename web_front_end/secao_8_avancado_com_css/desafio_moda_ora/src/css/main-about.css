@@ -1,0 +1,46 @@
+main #about {
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+main #about h2 {
+    font-size: 3rem;
+}
+
+main #about p {
+    width: 80%;
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+main #about ul {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+main #about ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+main #about ul li img {
+    border-radius: 8px;
+}
+
+main #about ul li h3 {
+    font-size: 1.5rem;
+}
+
+main #about ul li p {
+    text-align: center;
+    font-size: .9rem;
+    font-weight: 200;
+}
