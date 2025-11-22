@@ -1,0 +1,47 @@
+:root {
+    --color-primary: #2a2a2a;
+    --color-secondary: #fed001;
+    --color-tertiary: #003464;
+    --color-clear: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Maven Pro", sans-serif;
+    color: var(--color-primary);
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+}
+
+.container {
+    width: 90%;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: .8rem 3rem;
+    background-color: var(--color-secondary);
+    font-weight: 600;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, .5);
+    transition: all .5s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 4px 4px rgba(0, 0, 0, .5);
+}
+
