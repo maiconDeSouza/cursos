@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+}
+
+.container-details {
+    width: 90%;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: #ececec;
+}
+
+details {
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 8px;
+}
+
+details summary {
+    list-style: none;
+}
+
+details summary::before {
+    content: "+";
+    padding: .5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    transition: all .5s ease-in-out;
+}
+
+details[open] summary::before {
+    content: "-";
+}
