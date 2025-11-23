@@ -1,0 +1,15 @@
+:root {
+    --color-primary: #02b0a5;
+    --color-clear: #fff;
+    --color-clear-transparent: rgba(255, 255, 255, .8);
+    --color-dark: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}

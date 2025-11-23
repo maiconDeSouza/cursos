@@ -1,0 +1,128 @@
+header {
+    padding: 1rem;
+    background-color: var(--color-primary);
+
+    display: grid;
+    place-items: center;
+}
+
+header .btn-promo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 17em;
+    padding: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--color-clear);
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, .5);
+    transition: all .5s ease-in-out;
+}
+
+header .btn-promo:active {
+    transform: scale(.5);
+}
+
+main dialog {
+    width: 90%;
+    max-width: 50rem;
+    height: 25rem;
+    border: none;
+    border-radius: 8px;
+
+    background-image: url("../images/promo_cover.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main dialog::backdrop {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+main dialog .div-promo-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background-color: var(--color-clear-transparent);
+    position: relative;
+}
+
+main dialog .div-promo-container p:nth-of-type(1) {
+    font-weight: 900;
+}
+
+main dialog .div-promo-container p:nth-of-type(2) {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+main dialog .div-promo-container p:nth-of-type(2) span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-dark);
+}
+
+main dialog .div-promo-container .cupom {
+    padding: 1rem 2rem;
+    background-color: var(--color-clear);
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+main dialog .div-promo-container .cupom p:nth-of-type(1) {
+    color: var(--color-dark);
+    font-weight: 400;
+}
+
+main dialog .div-promo-container .cupom p:nth-of-type(2){
+    font-size: 1.2rem;
+}
+
+main dialog .div-promo-container .btn-go {
+    padding: .8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--color-clear);
+    cursor: pointer;
+}
+
+main dialog .div-promo-container .btn-close {
+    background-color: red;
+    color: var(--color-clear);
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+main dialog .div-promo-container .btn-close i {
+    font-size: 1.3rem;
+    font-weight: 900;
+}
