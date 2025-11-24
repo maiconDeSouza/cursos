@@ -52,9 +52,42 @@
     background-color: var(--input-bg);
     border-radius: 4px;
     border: none;
-    border-bottom: 1px solid var(--input-border-default);
+    border-bottom: 2px solid var(--input-border-default);
 }
 
 .form-contact fieldset div textarea {
     resize: none;
+}
+
+.form-contact fieldset div input:focus, .form-contact fieldset div textarea:focus {
+    outline: none;
+    background-color: var(--input-bg-focus);
+}
+
+.form-contact fieldset div input:valid, .form-contact fieldset div textarea:valid {
+    border-bottom-color: var(--accent-success);
+}
+
+.form-contact fieldset div input:focus:invalid, .form-contact fieldset div textarea:focus:invalid {
+    border-bottom-color: var(--accent-error);
+}
+
+.form-contact fieldset div input#subject {
+    border-bottom: 2px solid var(--input-border-default);
+}
+
+.form-contact fieldset div input#subject:focus {
+    border-bottom-color: var(--accent-success);
+}
+
+
+.form-contact fieldset button {
+    width: fit-content;
+    padding: 1rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 4px;
+
+    align-self: flex-end;
 }
