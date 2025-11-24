@@ -1,0 +1,31 @@
+:root{
+  --bg-page: #181818;
+  --bg-form: #0e1010;
+
+  --text-primary: #ffffff;
+  --text-muted: #8e999a;
+
+  --input-bg: rgba(0,0,0,0.3);
+  --input-bg-focus: #2a2727;
+  --input-border-default: #bbbbbb;
+
+  --accent-error: #ff000d;
+  --accent-success: #0ec72a;
+  --accent-focus: #8e999a;
+
+  --btn-bg: #2a2727;
+  --btn-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    color: var(--text-primary);
+}
+
+body {
+    height: 100dvh;
+    background-color: var(--bg-page);
+}

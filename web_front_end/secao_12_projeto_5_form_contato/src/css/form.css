@@ -1,0 +1,60 @@
+:root{
+  --bg-page: #181818;
+  --bg-form: #0e1010;
+
+  --text-primary: #ffffff;
+  --text-muted: #8e999a;
+
+  --input-bg: rgba(0,0,0,0.3);
+  --input-bg-focus: #2a2727;
+  --input-border-default: #bbbbbb;
+
+  --accent-error: #ff000d;
+  --accent-success: #0ec72a;
+  --accent-focus: #8e999a;
+
+  --btn-bg: #2a2727;
+  --btn-text: #ffffff;
+}
+
+.form-contact {
+    width: 90%;
+    max-width: 35rem;
+    margin: 5rem auto;
+    background-color: var(--bg-form);
+    padding: 1rem;
+
+}
+
+.form-contact fieldset {
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-contact fieldset legend {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-contact fieldset div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-contact fieldset div input, .form-contact fieldset div textarea {
+    padding: 1rem;
+    background-color: var(--input-bg);
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid var(--input-border-default);
+}
+
+.form-contact fieldset div textarea {
+    resize: none;
+}
