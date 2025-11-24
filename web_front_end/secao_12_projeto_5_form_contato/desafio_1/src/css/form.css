@@ -64,20 +64,12 @@
     background-color: var(--input-bg-focus);
 }
 
-.form-contact fieldset div input:valid, .form-contact fieldset div textarea:valid {
+.form-contact fieldset div input:focus:valid, .form-contact fieldset div textarea:focus:valid {
     border-bottom-color: var(--accent-success);
 }
 
 .form-contact fieldset div input:focus:invalid, .form-contact fieldset div textarea:focus:invalid {
     border-bottom-color: var(--accent-error);
-}
-
-.form-contact fieldset div input#subject {
-    border-bottom: 2px solid var(--input-border-default);
-}
-
-.form-contact fieldset div input#subject:focus {
-    border-bottom-color: var(--accent-success);
 }
 
 
@@ -88,6 +80,7 @@
     color: var(--btn-text);
     border: none;
     border-radius: 4px;
+    cursor: pointer;
 
     align-self: flex-end;
 }
