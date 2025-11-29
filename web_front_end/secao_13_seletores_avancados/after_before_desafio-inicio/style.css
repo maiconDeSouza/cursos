@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+     padding: 2rem;
+}
+
+a[href*="http"] {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+a[href*="http"]::after {
+    content: url('./imagens/newWindow-icon.png');
+}
+
+a[href$=".pdf"] {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+
+
+a[href$=".pdf"]::before {
+    content: url('./imagens/pdf-icon.gif');
+}
+
+
+#chk1:checked + label[for="chk1"] {
+    color: greenyellow;
+}
+
+input#chk1:not(:checked) + label[for="chk1"] {
+    color: red;
+}
+
+input[disabled] + label {
+    color: blue;
+}
+
+li  li:nth-child(3) {
+    background-color: orange;
+}
