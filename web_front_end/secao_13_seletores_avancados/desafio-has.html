@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 720px;
+            margin: 50px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: .5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #8d8d8d;
+        }
+
+        tr:nth-child(even) {
+            background-color: #d3d3d3;
+        }
+
+        tr:has(td):hover {
+            background-color: #8d8d8d;
+        }
+
+        tr:has(td:first-child > input:checked) {
+            background-color: orangered;
+        }
+
+    </style>
+    <title>Desafio Has</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Check</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" name="check" aria-label="check">
+                </td>
+                <td>John Doe</td>
+                <td>john@email.com</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="check" aria-label="check">
+                </td>
+                <td>Maria Silva</td>
+                <td>maria.silva@example.com</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="check" aria-label="check">
+                </td>
+                <td>Carlos Alberto</td>
+                <td>carlos.alberto@example.com</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="check" aria-label="check">
+                </td>
+                <td>Ana Pereira</td>
+                <td>ana.pereira@example.com</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="check" aria-label="check">
+                </td>
+                <td>Lucas Andrade</td>
+                <td>lucas.andrade@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
