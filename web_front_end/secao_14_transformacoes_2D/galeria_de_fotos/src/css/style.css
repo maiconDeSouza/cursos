@@ -28,13 +28,14 @@ ul {
 
 ul li {
     position: relative;
-    overflow: hidden;
+   overflow: hidden;
    
 }
 
 ul li::before {
     content: "";
     display: block;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -49,10 +50,12 @@ ul li::before {
 ul li::after {
     content: "descrição da imagem";
     display: block;
+    box-sizing: border-box;
     width: 100%;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.8);
     color: aliceblue;
+    text-align: center;
     
 
     position: absolute;
