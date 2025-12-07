@@ -1,0 +1,47 @@
+:root {
+    --color-bg: #444856;
+    --color-bg-sidebar: #31333B;
+    --primary-color: #FF7833;
+    --text-color: #E7E7E7;
+    --text-button-color: #F0F0F0;
+    --font-text: "Roboto", sans-serif;
+    --font-title: "Inter", sans-serif;
+    --transition: all .5s ease-in-out;
+    --padding-internal: 5rem 2rem;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    color: var(--text-color);
+    background-image: url('../images/bg-unsplash.png');
+
+    display: grid;
+    grid-template-columns: 16.25rem 1fr;
+    
+    min-height: 100dvh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+}
+
+.btn {
+    padding: .5rem;
+    width: fit-content;
+    background-color: var(--color-bg-sidebar);
+    color: var(--text-button-color);
+    border: 1px solid var(--text-button-color);
+}
+
+a {
+    display: inline-block;
+}
