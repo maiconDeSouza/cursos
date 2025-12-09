@@ -24,11 +24,14 @@ ul {
     gap: .5rem;
 
     background-color: aliceblue;
+
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
 }
 
 ul li {
     position: relative;
-   overflow: hidden;
+    overflow: hidden;
+    flex-grow: 1;
    
 }
 
@@ -56,6 +59,7 @@ ul li::after {
     background-color: rgba(0, 0, 0, 0.8);
     color: aliceblue;
     text-align: center;
+    text-transform: uppercase;
     
 
     position: absolute;
@@ -74,4 +78,14 @@ ul li:hover::before {
 
 ul li:hover::after {
     transform: translateY(0);
+}
+
+ul li img {
+    width: 100%;
+    display: block;
+    transition: all .5s ease-in-out;
+}
+
+ul li:hover img {
+    transform: scale(1.1);
 }
