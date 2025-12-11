@@ -1,0 +1,30 @@
+.main-typography {
+    height: 100dvh;
+    padding: var(--padding-internal);
+    background-color: var(--color-bg);
+    opacity: .6;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.main-typography article.emphasis {
+    padding: 1rem;
+    border-left: 1px solid var(--primary-color);
+}
+
+.main-typography .content-typography {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-typography .content-typography article p {
+    line-height: 1.8;
+}
+
+.main-typography .content-typography article p > u {
+    text-decoration: red wavy underline;
+}
