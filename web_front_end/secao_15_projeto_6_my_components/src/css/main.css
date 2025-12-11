@@ -1,5 +1,5 @@
 .main-home {
-    height: 100dvh;
+    min-height: 100dvh;
     padding: var(--padding-internal);
     background-color: var(--color-bg);
     opacity: .6;
