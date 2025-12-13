@@ -22,6 +22,7 @@
 body {
     color: var(--text-color);
     background-image: url('../images/bg-unsplash.png');
+    background-repeat: repeat-y;
 
     display: grid;
     grid-template-columns: 16.25rem 1fr;
