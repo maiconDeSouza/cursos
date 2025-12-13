@@ -10,11 +10,6 @@
 }
 
 
-.main-typography article.emphasis {
-    padding: 1rem;
-    border-left: 1px solid var(--primary-color);
-}
-
 .main-typography .content-typography {
     display: flex;
     flex-direction: column;
