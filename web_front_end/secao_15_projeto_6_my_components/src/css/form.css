@@ -1,0 +1,33 @@
+.main-form {
+    min-height: 100dvh;
+    padding: var(--padding-internal);
+    background-color: var(--color-bg);
+    opacity: .6;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-form .content-form {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-form .content-form .form, .main-form .content-form .form .address {
+    flex: 1;
+}
+
+.main-form .content-form .form fieldset {
+    border: none;
+}
+
+.main-form .message legend {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.main-form .content-form .message {
+    display: flex;
+}
