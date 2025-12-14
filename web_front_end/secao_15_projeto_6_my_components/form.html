@@ -71,11 +71,44 @@
                 </div>
                 <label class="label-message">
                     <span>Digite sua mensagem</span>
-                    <textarea name="msg" id="msg"></textarea>
+                    <textarea name="msg" id="msg" rows="7"></textarea>
                 </label>
             </fieldset>
             <fieldset class="quiz">
                 <legend>Quiz</legend>
+                <label class="label-language">
+                    <span>Qual é sua linguagem preferida?</span>
+                    <select name="language" id="language">
+                        <option value="">Selecione</option>
+                        <option value="js">JavaScript</option>
+                        <option value="py">Python</option>
+                        <option value="go">Go</option>
+                    </select>
+                </label>
+                <div class="group-priority">
+                    <label>
+                        <span>Baixa prioridade</span>
+                        <input type="radio" name="priority" id="low-priority">
+                    </label>
+                    <label>
+                        <span>Média prioridade</span>
+                        <input type="radio" name="priority" id="medium-priority">
+                    </label>
+                    <label>
+                        <span>Alta prioridade</span>
+                        <input type="radio" name="priority" id="high-priority">
+                    </label>
+                </div>
+                <div class="check">
+                    <label>
+                        <input type="checkbox" name="copy" id="copy">
+                        <span>Envie-me uma cópia</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="human" id="human">
+                        <span>Sou um humano</span>
+                    </label>
+                </div>
             </fieldset>
            </form>
            <address class="address">
