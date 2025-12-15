@@ -1,3 +1,62 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
+    background-image: url('./imagens/tile.png');
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+section {
+    counter-reset: n;
+}
+
+.cores {
+    width: 80%;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border: 2px dashed black;
+
+    counter-increment: n;
+}
+
+.cores::before {
+    content: '[ 'counter(n)' ]';
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.cores:nth-of-type(2) {
+    background-color: aquamarine;
+    background-clip: content-box;
+}
+
+.cores:nth-of-type(3) {
+    background-color: hsl(85deg, 100%, 50%);
+    background-clip: padding-box;
+    transition: all .5s ease-in-out;
+}
+
+.cores:nth-of-type(3):hover {
+    background-color: hsl(85deg, 100%, 30%);
+}
+
+.cores:nth-of-type(4) {
+    background-image: linear-gradient(70deg, aquamarine, transparent);
+}
+
+.cores:nth-of-type(5) {
+    background-image: conic-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+    transition: filter 5s linear;
+}
+
+.cores:nth-of-type(5):hover {
+    filter: hue-rotate(10turn)
 }
