@@ -20,3 +20,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--fonts-title);
 }
+
+.container {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
