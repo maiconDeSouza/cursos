@@ -1,20 +1,57 @@
 .header-nav {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
 
     img {
         width: 90%;
+        max-width: 30rem;
+        align-self: center;
     }
 
     nav ul {
+        width: 100%;
         display: flex;
         flex-direction: column;
 
         li {
-            width: 100%;
-            background-color: aqua;
+            a {
+                display: block;
+                padding: 1rem;
+                background-color: var(--primary-color);
+                color: aliceblue;
+                font-weight: 700;
+                text-align: center;
+                color: white;
+                transition: var(--transition);
+
+                &:hover {
+                    background-color: color-mix(in srgb, var(--primary-color), white 10%);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 51.25rem) {
+    .header-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        nav ul {
+            flex-direction: row;
+            li {
+                a {
+                    background-color: initial;
+                    color: var(--dark-color);
+                    border-radius: var(--border-radius);
+
+                    &:hover {
+                        background-color: color-mix(in srgb, var(--primary-color), white 70%);
+                    }
+                }
+            }
         }
     }
 }

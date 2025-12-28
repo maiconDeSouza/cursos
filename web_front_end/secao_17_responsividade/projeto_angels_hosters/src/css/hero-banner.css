@@ -1,0 +1,43 @@
+.hero-banner {
+    padding: 1rem;
+    background-color: var(--light-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    
+
+    .hero-banner__div-img {
+        display: none;
+        max-width: 5rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    p {
+        max-width: 37.5rem;
+        text-align: center;
+        line-height: 1.5;
+        strong {
+            color: var(--primary-color);
+        }
+    }
+}
+
+@media (min-width: 51.25rem) {
+    .hero-banner {
+        background-image: url("../images/bg_topo_1600x1374.jpg");
+        background-size: cover;
+
+        .hero-banner__div-img {
+            display: block;
+        }
+    }
+}

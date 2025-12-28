@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
+    --light-bg: #b5b5b5;
     --primary-color: #612674;
+    --light-color: white;
+    --dark-color: black;
     --fonts-title: "Cormorant Garamond", serif;
     --fonts-body: "Roboto", sans-serif;
+    --transition: all .5s ease-in-out;
+    --border-radius: 8px;
 }
 
 *, *::after, *::before {
@@ -19,11 +24,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--fonts-title);
+    color: var(--primary-color);
 }
 
 .container {
-    width: 100%;
     max-width: 64rem;
     margin: 0 auto;
-    padding: 2rem;
 }
