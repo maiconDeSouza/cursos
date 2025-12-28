@@ -5,6 +5,8 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+
+    
     
 
     .hero-banner__div-img {
@@ -35,9 +37,19 @@
     .hero-banner {
         background-image: url("../images/bg_topo_1600x1374.jpg");
         background-size: cover;
+        background-position: top center;
+        aspect-ratio: 1 / .5;
+
+        justify-content: center;
 
         .hero-banner__div-img {
             display: block;
+        }
+
+        h2, p {
+            background-color: color-mix(in srgb, white, transparent 50%);
+            padding: 1rem;
+            border-radius: var(--border-radius);
         }
     }
 }
