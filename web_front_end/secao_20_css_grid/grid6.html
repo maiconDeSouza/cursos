@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            height: 100dvh;
+            grid-template-columns: [col-line-1] 250px [col-line-2] 1fr [col-line-3];
+            grid-template-rows: [row-line-1] 150px [row-line-2] 100px [row-line-3] 1fr [row-line-4] 150px [row-line-5];
+            gap: 1rem;
+
+            
+
+           
+        }
+        .header {
+            background-color: aqua;
+            grid-column: col-line-1 / col-line-3;
+            
+        }
+        .nav {
+            background-color: chartreuse;
+            grid-column: col-line-2 / col-line-3;
+        }
+        .aside {
+            background-color: crimson;
+            grid-column: col-line-1 / col-line-2;
+            grid-row: row-line-2 / row-line-4;
+            
+        }
+        .main {
+            background-color: darkorange;
+            grid-column: col-line-2 / col-line-3;
+        }
+        .footer {
+            background-color: black;
+            grid-column: col-line-1 / col-line-3;
+        }
+    </style>
+    <title>Grid 6</title>
+</head>
+<body>
+    <header class="header">Header</header>
+    <nav class="nav">Nav</nav>
+    <aside class="aside">Aside</aside>
+    <main class="main">Main</main>
+    <footer class="footer">footer</footer>
+</body>
+</html>
