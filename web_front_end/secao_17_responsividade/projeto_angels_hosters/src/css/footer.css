@@ -1,0 +1,21 @@
+.footer-main {
+    background-color: var(--footer-color);
+    margin-top: 3rem;
+    
+
+    div {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        h4, p {
+            color: var(--light-color);
+        }
+
+        h4 {
+            font-size: 1.5rem;
+        }
+    }
+}
