@@ -63,6 +63,18 @@
     gap: 3rem;
 }
 
+.m-order-1 {
+    order: 1;
+}
+
+.m-order-2 {
+    order: 2;
+}
+
+.m-order-3 {
+    order: 3;
+}
+
 
 /* tablet */
 @media (40rem <= width < 64rem){
@@ -112,6 +124,18 @@
 
     .t-col-1 {
         grid-column: span 1;
+    }
+
+    .t-order-1 {
+        order: 1;   
+    }
+
+    .t-order-2 {
+        order: 2;
+    }
+
+    .t-order-3 {
+        order: 3;
     }
 
 } 
@@ -164,5 +188,17 @@
 
     .d-col-1 {
         grid-column: span 1;
+    }
+
+    .d-order-1 {
+        order: 1;   
+    }
+
+    .d-order-2 {
+        order: 2;
+    }
+
+    .d-order-3 {
+        order: 3;
     }
 } 
