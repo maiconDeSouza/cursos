@@ -1,0 +1,33 @@
+.main__partners {
+    margin-top: var(--spacing-6);
+}
+
+.main__partners p {
+    text-align: center;
+}
+
+.main__partners ul {
+    padding: var(--spacing-1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-gray-300);
+}
+
+.main__partners ul li img {
+    width: 80%;
+}
+
+/* tablet */
+@media (40rem <= width < 64rem){
+    .main__partners ul li img {
+        width: 100%;
+    }
+} 
+
+/* desktop */
+@media (width >= 64rem){
+    .main__partners ul li img {
+        width: 100%;
+    }
+} 

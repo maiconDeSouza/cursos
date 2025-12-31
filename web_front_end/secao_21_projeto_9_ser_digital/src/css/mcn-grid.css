@@ -1,0 +1,168 @@
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.m-col-12 {
+    grid-column: span 12;
+}
+
+.m-col-11 {
+    grid-column: span 11;
+}
+
+.m-col-10 {
+    grid-column: span 10;
+}
+
+.m-col-9 {
+    grid-column: span 9;
+}
+
+.m-col-8 {
+    grid-column: span 8;
+}
+
+.m-col-7 {
+    grid-column: span 7;
+}
+
+.m-col-6 {
+    grid-column: span 6;
+}
+
+.m-col-5 {
+    grid-column: span 5;
+}
+
+.m-col-4 {
+    grid-column: span 4;
+}
+
+.m-col-3 {
+    grid-column: span 3;
+}
+
+.m-col-2 {
+    grid-column: span 2;
+}
+
+.m-col-1 {
+    grid-column: span 1;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+
+/* tablet */
+@media (40rem <= width < 64rem){
+    .t-col-12 {
+        grid-column: span 12;
+    }
+
+    .t-col-11 {
+    grid-column: span 11;
+    }
+
+    .t-col-10 {
+        grid-column: span 10;
+    }
+
+    .t-col-9 {
+        grid-column: span 9;
+    }
+
+    .t-col-8 {
+        grid-column: span 8;
+    }
+
+    .t-col-7 {
+        grid-column: span 7;
+    }
+
+    .t-col-6 {
+        grid-column: span 6;
+    }
+
+    .t-col-5 {
+        grid-column: span 5;
+    }
+
+    .t-col-4 {
+        grid-column: span 4;
+    }
+
+    .t-col-3 {
+        grid-column: span 3;
+    }
+
+    .t-col-2 {
+        grid-column: span 2;
+    }
+
+    .t-col-1 {
+        grid-column: span 1;
+    }
+
+} 
+
+/* desktop */
+@media (width >= 64rem){
+    .d-col-12 {
+        grid-column: span 12;
+    }
+
+    .d-col-11 {
+    grid-column: span 11;
+    }
+
+    .d-col-10 {
+        grid-column: span 10;
+    }
+
+    .d-col-9 {
+        grid-column: span 9;
+    }
+
+    .d-col-8 {
+        grid-column: span 8;
+    }
+
+    .d-col-7 {
+        grid-column: span 7;
+    }
+
+    .d-col-6 {
+        grid-column: span 6;
+    }
+
+    .d-col-5 {
+        grid-column: span 5;
+    }
+
+    .d-col-4 {
+        grid-column: span 4;
+    }
+
+    .d-col-3 {
+        grid-column: span 3;
+    }
+
+    .d-col-2 {
+        grid-column: span 2;
+    }
+
+    .d-col-1 {
+        grid-column: span 1;
+    }
+} 
