@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    background-image: radial-gradient(ellipse at 0 0, #fff8ce, #ffb61d);
+    background-repeat: no-repeat;
+}
+
+body img {
+    position: absolute;
+}
+
+.apaixonado {
+    top: 10%;
+    left: 30%;
+    z-index: 10;
+    animation: topleft 2s infinite alternate;
+}
+
+.boca {
+    top: 10%;
+    left: 30%;
+    animation: topleft 3s .5s infinite alternate;
+}
+
+.chorando-rindo {
+    top: 50%;
+    left: 60%;
+    z-index: 11;
+    animation: topleft 3.5s .5s infinite alternate;
+}
+
+.feliz {
+    top: 60%;
+    left: 30%;
+    animation: topleft 4s .5s infinite alternate;
+}
+
+.triste {
+    top: 20%;
+    left: 60%;
+    
+    z-index: 11;
+    animation: topleft 3s infinite alternate;
+}
+
+.lingua {
+    top: 0%;
+    left: 45%;
+    animation: topleft 4s infinite alternate;
+}
+
+@keyframes topleft {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-10px, -30px);
+    }
+}

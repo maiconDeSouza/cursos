@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    background-image: radial-gradient(ellipse at 0 0, #fff8ce, #ffb61d);
+    background-repeat: no-repeat;
+
+    display: grid;
+    place-items: center;
+}
+
+.apaixonado {
+    width: 120px;
+    /* Usamos uma curva de tempo cúbica para deixar o "POP" bem elástico */
+    animation: explosaoDeAmor 2.5s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+}
+
+@keyframes explosaoDeAmor {
+    /* --- FASE 1: A Tremidinha de Empolgação --- */
+    0%, 20% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0 rgba(255, 215, 0, 0));
+    }
+    5%, 15% {
+        transform: scale(1.1) rotate(-5deg); /* Treme para esquerda */
+    }
+    10% {
+        transform: scale(1.1) rotate(5deg); /* Treme para direita */
+    }
+
+    /* --- FASE 2: O Grande POP --- */
+    35% {
+        /* Cresce muito e ganha um brilho dourado forte */
+        transform: scale(1.5) rotate(0deg);
+        filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+    }
+
+    /* --- FASE 3: O Relaxamento Pós-POP --- */
+    45% {
+        /* Um pequeno "rebote" para ficar elástico */
+        transform: scale(0.95);
+        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
+    }
+    60%, 100% {
+        /* Volta ao normal e espera o próximo loop */
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(255, 215, 0, 0));
+    }
+}

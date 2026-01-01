@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            height: 150px;
+            border-bottom: 4px solid #333;
+            display: flex;
+            align-items: flex-end;
+            /* Importante: esconde o item quando ele sai da borda */
+            overflow: hidden; 
+        }
+
+        .item {
+            width: 80px;
+            height: 80px;
+            background-color: cadetblue;
+            /* infinite: repete para sempre */
+            /* linear ou ease: controla o ritmo */
+            animation: transformarERolar 4s linear infinite;
+        }
+
+        @keyframes transformarERolar {
+            /* 0-10%: Começa como quadrado parado */
+            0% {
+                transform: translateX(0) rotate(0deg);
+                border-radius: 0%;
+                opacity: 1;
+            }
+            /* 10-25%: Transforma em círculo ainda parado */
+            25% {
+                transform: translateX(0) rotate(0deg);
+                border-radius: 50%;
+                opacity: 1;
+            }
+            /* 25-75%: Rola até o final do container */
+            75% {
+                transform: translateX(calc(80vw - 80px)) rotate(720deg);
+                border-radius: 50%;
+                opacity: 1;
+            }
+            /* 75-85%: Fica invisível no final */
+            85% {
+                transform: translateX(calc(80vw - 80px)) rotate(720deg);
+                border-radius: 50%;
+                opacity: 0;
+            }
+            /* 85-90%: "Teletransporta" para o início ainda invisível */
+            90% {
+                transform: translateX(0) rotate(0deg);
+                border-radius: 0%;
+                opacity: 0;
+            }
+            /* 100%: Reseta para o estado inicial para recomeçar */
+            100% {
+                transform: translateX(0) rotate(0deg);
+                border-radius: 0%;
+                opacity: 1;
+            }
+        }
+    </style>
+    <title>Loop Infinito</title>
+</head>
+<body>
+    <div class="container">
+        <div class="item"></div>
+    </div>
+</body>
+</html>
