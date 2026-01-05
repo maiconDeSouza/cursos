@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .cena {
+            margin: 1rem auto;
+            width: 600px;
+            aspect-ratio: 1;
+            border: 1px solid red;
+
+            display: grid;
+            place-items: center;
+        }
+
+        #cena1 {
+            perspective: 400px;
+        }
+
+        #cena1 .plano {
+            width: 200px;
+            aspect-ratio: 1;
+            background-color: red;
+            transform: rotateY(45deg);
+        }
+
+        #cena2 .plano {
+            width: 200px;
+            aspect-ratio: 1;
+            background-color: red;
+            transform: perspective(600px) rotateY(45deg);
+        }
+
+        #cena3, #cena4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        #cena3 .plano, #cena4 .plano {
+            width: 150px;
+            aspect-ratio: 1;
+            background-color: red;
+        }
+
+        #cena3 {
+            perspective: 600px;
+        }
+
+        #cena3 .plano {
+            transform: rotateY(45deg);
+        }
+
+        #cena4 .plano {
+            transform: perspective(600px) rotateY(45deg);
+        }
+    </style>
+    <title>Perspectiva</title>
+</head>
+<body>
+    <div class="cena" id="cena1">
+        <div class="plano"></div>
+    </div>
+    <div class="cena" id="cena2">
+        <div class="plano"></div>
+    </div>
+
+    <div class="cena" id="cena3">
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+    </div>
+    <div class="cena" id="cena4">
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+        <div class="plano"></div>
+    </div>
+</body>
+</html>
