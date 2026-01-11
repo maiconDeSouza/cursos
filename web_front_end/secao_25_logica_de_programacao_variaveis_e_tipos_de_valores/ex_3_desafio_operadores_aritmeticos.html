@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores artmeticos</title>
+</head>
+<body>
+    <h1>Operadores artméticos</h1>
+
+    <script>
+        function result(number1, number2){
+            if(!Number.isInteger(number1) || !Number.isInteger(number2)){
+                alert('Digite apenas números e que sejam inteiros')
+                return
+            }
+
+            alert(
+                `
+                soma = ${number1 + number2}
+                subtração = ${number1 - number2}
+                divisão = ${number1 / number2}
+                multiplicação = ${number1 * number2}
+                `
+            )
+            }
+        const number1 = Number(prompt('Digite o primeiro número inteiro'))
+        const number2 = Number(prompt('Digite o segundo número inteiro'))
+        result(number1, number2)
+    </script>
+</body>
+</html>

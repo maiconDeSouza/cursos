@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Maior</title>
+</head>
+<body>
+    
+    <script>
+       function getNumber(numberRef){
+        const number = Number(prompt(`Digite o ${numberRef} número:`))
+        return number
+       }
+
+       function isNumber(number, numberRef){
+        if(Number.isNaN(number)){
+            alert(`O ${numberRef} número precisa ser um número decimal!`)
+            return false
+        }
+        return true
+       }
+
+       function ranger(number, numberRef){
+        if(number < 0 || number > 10){
+            alert(`O ${numberRef} tem que está entre 0 e 10`)
+            return false
+        }
+        return true
+       }
+
+       function greaterThan(n1, n2){
+        return `n1(${n1}) é maior que n2(${n2}) -> ${n1 > n2}`
+       }
+
+       function result(){
+        const n1 = getNumber('primeiro')
+        const n2 = getNumber('sugundo')
+        const n1IsNumber = isNumber(n1, 'primeiro')
+        const n2IsNumber = isNumber(n2, 'segundo')
+
+        if(!n1IsNumber || !n2IsNumber){
+            return
+        }
+
+        const n1Ranger = ranger(n1, 'primeiro')
+        const n2Ranger = ranger(n2, 'segundo')
+
+        if(!n1Ranger || !n2Ranger){
+            return
+        }
+        const result = greaterThan(n1, n2)
+        alert(result)
+       }
+
+       result()
+    </script>
+</body>
+</html>

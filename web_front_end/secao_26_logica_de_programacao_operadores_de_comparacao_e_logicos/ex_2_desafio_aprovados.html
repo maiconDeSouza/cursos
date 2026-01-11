@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Maior</title>
+</head>
+<body>
+    
+    <script>
+       function getGrade(gradeRef){
+        const number = Number(prompt(`Digite a ${gradeRef} nota:`))
+        return number
+       }
+
+       function isNumber(number, gradeRef){
+        if(Number.isNaN(number)){
+            alert(`O ${gradeRef} número precisa ser um número decimal!`)
+            return false
+        }
+        return true
+       }
+
+       function isApproved(){
+        const grade1 = getGrade('primeira')
+        const grade2 = getGrade('segunda')
+        const grade1IsNumber = isNumber(grade1, 'primeiro')
+        const grade2IsNumber = isNumber(grade2, 'segunda')
+
+        if(!grade1IsNumber || !grade2IsNumber){
+            return 
+        }
+
+        const sumGrade = grade1 + grade2
+        const average = sumGrade / 2
+        const result = average >= 7 ? 'Aprovado' : 'Reprovado'  
+
+        alert(`Você foi ${result}`)
+       }
+
+      isApproved()
+    </script>
+</body>
+</html>

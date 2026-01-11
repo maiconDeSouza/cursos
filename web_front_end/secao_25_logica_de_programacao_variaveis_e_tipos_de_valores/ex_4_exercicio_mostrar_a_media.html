@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar a Média</title>
+</head>
+<body>
+    <h1>Mostrar a Média</h1>
+
+    <script>
+        function result(number1, number2){
+            if(!number1 || !number2){
+                alert('Digite apenas números')
+                return
+            }
+
+            if(number1 < 0 || number1 > 10){
+                alert('Nota 1 tem que estar entre 0 e 10')
+                return
+            }
+
+            if(number2 < 0 || number2 > 10){
+                alert('Nota 2 tem que estar entre 0 e 10')
+                return
+            }
+
+            alert(`A média é ${(number1 + number2) / 2}`)
+            }
+        const number1 = Number(prompt('Digite a primeira nota de 0 à 10'))
+        const number2 = Number(prompt('Digite a segunda nota de 0 à 10'))
+        result(number1, number2)
+    </script>
+</body>
+</html>
