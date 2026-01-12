@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    <h1>Tabuada</h1>
+
+    <script>
+        try {
+            const number = Number(prompt("Qual taboada você quer saber?"))
+            
+
+            if(isNaN(number)){
+                throw new Error("Digite apenas números");
+            }
+
+           for (let mult = 1; mult <= 10; mult++) {
+                document.write(`<p>${number} x ${mult} = ${number * mult}</p>`)
+           }
+        } catch (error) {
+            document.write(`<p>${error}</p>`)
+        }
+    </script>
+</body>
+</html>
