@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digite apenas números</title>
+</head>
+<body>
+    <script>
+        function isValid(number){
+            if(isNaN(number) || number < 0 || number > 10){
+                throw new Error("Digite apenas números entre 0 e 10");
+            }
+        }
+        try {
+            const n1 = Number(prompt('Digite o primeiro número entre 0 e 10'))
+            const n2 = Number(prompt('Digite o segundo número entre 0 e 10'))
+            isValid(n1)
+            isValid(n2)
+            alert("Obrigado!")
+        } catch (error) {
+            alert(error)
+        }
+    </script>
+</body>
+</html>
