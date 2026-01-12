@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true e false</title>
+</head>
+<body>
+    <script>
+        try {
+            let result = null
+            const n1 = Number(prompt('Digite o primeiro valor:'))
+            const n2 = Number(prompt('Digite o segundo valor:'))
+
+            if(Number.isNaN(n1)){
+                throw new Error('Somente digite números no primeiro valor')
+            }
+
+            if(Number.isNaN(n2)){
+                throw new Error('Somente digite números no segundo valor')
+            }
+
+            if(n1 < 0 || n1 > 10){
+                throw new Error('O primeiro valor tem que ser entre 0 e 10')
+            }
+
+            if(n2 < 0 || n2 > 10){
+                throw new Error('O segundo valor tem que ser entre 0 e 10');
+            }
+
+            const media = (n1 + n2) / 2
+
+            if(media > 4 || n1 === 0 || n2 === 0){
+                result = true
+            } else {
+                result = false
+            }
+            alert(result ? 'Você foi reprovado!' : 'Você foi aprovado!')
+        } catch (error) {
+            alert(error)
+        }
+    </script>
+</body>
+</html>
