@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada com quebra de linha</title>
+</head>
+<body>
+    <script>
+        try {
+            const number = Number(prompt('Digite um número.'))
+            
+            if(isNaN(number)){
+                throw new Error("Digite apenas números")
+            }
+
+            for (let index = 1; index <= 1000; index++) {
+                let total = number * index
+                document.write(`<p>${number} x ${index} = ${total}</p>`)
+                
+                if(index % 10 === 0){
+                    document.write(`<hr>`)
+                }
+            }
+        } catch (error) {
+            document.write(`<p>${error}</p>`)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerte o número sorteado</title>
+</head>
+<body>
+    <script>
+        let count = 1
+        while (true) {
+            try {
+                const number = Number(prompt("Digite um número de 1 a 30"))
+
+                if(isNaN(number) || number < 1 || number > 30){
+                    throw new Error("Digite apenas números entre 1 e 30... Por Favor!!!!");
+                }
+
+                const numberRandom = Math.floor((Math.random() * 30) + 1)
+
+                if(number === numberRandom){
+                    document.write(`<p>Você acertou em ${count} tentativas - número sorteado é ${number}!!!!!</p>`)
+                    break
+                }
+
+                document.write(`<p>Tentativa ${count} - você escolheu ${number} - número sorteado foi ${numberRandom}</p>`)
+                count++
+            } catch (error) {
+                document.write(`<p>${error}</p>`)
+                break
+            }
+        }
+    </script>
+</body>
+</html>

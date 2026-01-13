@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos Números Pares</title>
+</head>
+<body>
+    <script>
+        try {
+            const number = Number(prompt('Digite um número inteiro qualquer e descubra todos números pares até chegar nele.'))
+            
+            if(isNaN(number) || !Number.isInteger(number)){
+                throw new Error("Digite apenas números inteiros")
+            }
+
+            let count = 2
+            
+            while(count <= number){
+                document.write(`<p>${count}`)
+                
+                count+=2
+            }
+
+        } catch (error) {
+            document.write(`<p>${error}</p>`)
+        }
+    </script>
+</body>
+</html>

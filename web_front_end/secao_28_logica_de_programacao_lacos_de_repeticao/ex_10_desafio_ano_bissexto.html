@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+</head>
+<body>
+    <script>
+        function writeAge(age){
+            document.write(`<p>${age}</p>`)
+        }
+
+        for(let age = 0; age <= 2026; age+=4){
+            let ageBissexto = age % 100 !== 0 || age % 400 === 0
+            
+            if(ageBissexto){
+                writeAge(age)
+            }
+        }
+    </script>
+</body>
+</html>

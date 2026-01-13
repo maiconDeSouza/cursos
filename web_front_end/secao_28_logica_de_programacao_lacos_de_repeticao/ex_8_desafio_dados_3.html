@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .aqua {
+            color: aqua;
+        }
+
+        .orange {
+            color: orange;
+        }
+    </style>
+    <title>Dados</title>
+</head>
+<body>
+    <script>
+        let count = 1
+        let tentativas = 1
+        
+
+        function numberRandom(){
+            return Math.floor(Math.random() * 6) + 1
+        }
+
+        while (count <= 10) {
+            const dado1 = numberRandom()
+            const dado2 = numberRandom()
+            const total = dado1 + dado2
+
+            if(dado1 === dado2){
+                document.write(`<p>${dado1} + ${dado2} = <span class="orange">${total}</span></p>`)
+                continue
+            }
+
+            if(total % 2 === 0){
+                document.write(`<p>${dado1} + ${dado2} = <span class="green">${total}</span></p>`)
+                count++
+                continue
+            }
+            document.write(`<p>${dado1} + ${dado2} = <span class="red">${total}</span></p>`)
+            tentativas++
+        }
+        document.write(`<p class="aqua">Você jogou os dados ${tentativas}</p>`)
+    </script>
+</body>
+</html>
