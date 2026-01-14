@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia da Semana</title>
+</head>
+<body>
+    <script>
+        // arr1: Contém undefined, null e NaN, além de outros valores.
+        const arr1 = [10, "hello", true, undefined, null, NaN, 20, false]
+
+        // arr2: Contém apenas null dos três valores especiais.
+        const arr2 = ["apple", 5, false, null, true, "banana"]
+
+        // arr3: Contém apenas NaN dos três valores especiais.
+        const arr3 = [0, "world", NaN, true, 1]
+
+        // arr4: Não contém nenhum dos três valores especiais (undefined, null, ou NaN).
+        const arr4 = [42, "test", true, false, 99]
+
+        function find(value){
+            let isValid = false
+
+            if(typeof value === "string") return isValid
+
+            if(value === undefined || value === null || isNaN(value)){
+                isValid = true
+                return isValid
+            }
+            
+            return isValid
+        }
+        
+        function loop(arr, text){
+            let result = false
+            for(let i = 0; i <= arr.length - 1; i++){
+                if(find(arr[i])){
+                    result = true
+                    break
+                }
+            }
+
+            console.log(`${text} - ${result}`)
+        }
+
+        loop(arr1, 'O Array1 tem pelo menos um desses valores (undefined, null, NaN)')
+        loop(arr2, 'O Array2 tem pelo menos um desses valores (undefined, null, NaN)')
+        loop(arr3, 'O Array3 tem pelo menos um desses valores (undefined, null, NaN)')
+        loop(arr4, 'O Array4 tem pelo menos um desses valores (undefined, null, NaN)')
+
+
+    </script>
+</body>
+</html>
