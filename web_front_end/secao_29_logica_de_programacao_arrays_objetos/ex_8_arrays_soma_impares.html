@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia da Semana</title>
+</head>
+<body>
+    <script>
+        const numbers = [15, 20, 7, 3, 44, 11, 2.5, 9, 30, -5, 12, 17, 8, 21, 55, 100, 1, 4, 33, 22, 13, 0, 99, 10, 6, 27, 4.3, 19, 2, 41];
+        let total = 0
+        for(let i = 0; i <= numbers.length -1; i++){
+            if(Number.isInteger(numbers[i]) && numbers[i] % 2 !== 0){
+                total += numbers[i]
+            }
+        }
+        document.write(`O total da soma dos números impares é ${total}`)
+    </script>
+</body>
+</html>
