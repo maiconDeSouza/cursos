@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        const ul = document.querySelector('ul')
+        const fragment = document.createDocumentFragment()
+
+        const usuarios = [
+            { nome: 'Alice', email: 'alice@email.com' },
+            { nome: 'Bob', email: 'bob@email.com' },
+            { nome: 'Charlie', email: 'charlie@email.com' },
+            { nome: 'Diana', email: 'diana@email.com' },
+            { nome: 'Eduardo', email: 'eduardo@email.com' }
+        ]
+
+        for(let i = 0; i <= usuarios.length -1; i++){
+            const li = document.createElement('li')
+            const nodeText = document.createTextNode(`${usuarios[i].nome} - ${usuarios[i].email}`)
+            li.appendChild(nodeText)
+            fragment.appendChild(li)
+        }
+
+        ul.appendChild(fragment)
+    </script>
+</body>
+</html>

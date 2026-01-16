@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden; /* mantém o radius */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Cabeçalho */
+        .table thead {
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+
+        .table thead th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* Corpo */
+        .table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eaeaea;
+            color: #333;
+        }
+
+        /* Zebra striping */
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover */
+        .table tbody tr:hover {
+            background-color: #eef3f8;
+        }
+
+        /* Última linha sem borda */
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Colunas numéricas alinhadas à direita */
+        .table td:nth-child(2),
+        .table td:nth-child(3),
+        .table th:nth-child(2),
+        .table th:nth-child(3) {
+            text-align: right;
+        }
+
+    </style>
+    <title>Lista</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <script>
+        const tbody = document.querySelector('.table tbody')
+        const products = [
+            {
+                name: "Caneta Azul",
+                price: 2.87,
+                amount: 20
+            },
+            {
+                name: "Caderno Universitário",
+                price: 18.90,
+                amount: 8
+            },
+            {
+                name: "Lápis HB",
+                price: 1.50,
+                amount: 50
+            },
+            {
+                name: "Borracha Branca",
+                price: 0.99,
+                amount: 35
+            },
+            {
+                name: "Marca-texto",
+                price: 4.75,
+                amount: 15
+            },
+            {
+                name: "Apontador",
+                price: 2.20,
+                amount: 25
+            }
+        ]
+
+        const line = products.map(prod => `<tr><td>${prod.name}</td><td>${prod.price}</td><td>${prod.amount}</td></tr>`).join('')
+        tbody.innerHTML = line
+    </script>
+</body>
+</html>

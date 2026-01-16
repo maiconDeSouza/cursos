@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+<body>
+    <script>
+        const name = prompt('Digite seu nome') || 'name'
+        const email = prompt('Digite seu e-mail') || 'email'
+
+        const person = {
+            name,
+            email
+        }
+
+        document.write(`nome: ${person.name} - email: ${person.email}`)
+    </script>
+</body>
+</html>
