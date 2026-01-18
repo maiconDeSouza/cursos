@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    <input type="number" id="input" placeholder="Digite um número">
+    <button type="button" id="button">Gerar tabuada</button>
+    <ul id="result"></ul>
+    <script>
+        const input = document.getElementById('input')
+        const button = document.getElementById('button')
+        const result = document.getElementById('result')
+        const fragment = document.createDocumentFragment()
+
+        function createElement(el){
+            return document.createElement(el)
+        }
+
+        function createText(text){
+            return document.createTextNode(text)
+        }
+
+
+        function createMultiplicationTable(number){
+             for(let i = 1; i <= 100; i++){
+                const li = createElement('li')
+                const text = createText(`${number} x ${i} = ${number * i}`)
+                li.appendChild(text)
+                fragment.appendChild(li)
+             }
+        }
+
+        button.addEventListener('click', e => {
+            result.textContent = ''
+            try {
+                const number = Number(input.value)
+
+                if(isNaN(number) || number === 0)throw new Error('apenas digite números')
+                
+                createMultiplicationTable(number)
+                
+                result.appendChild(fragment)
+                input.value = ''
+            } catch (error) {
+                result.textContent = error
+            }
+        })
+    </script>
+</body>
+</html>
