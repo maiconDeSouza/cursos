@@ -20,3 +20,5 @@ function addArr(arr){
 addArr(arr)
 
 console.log('valor array externo:', arr)
+
+console.log((1234567890).toString(2))
