@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #cccccc;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    margin-top: 10%;
+}
+
+form fieldset {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+form fieldset input {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 7px;
+    border: none;
+}
+
+form fieldset button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 7px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+:popover-open {
+    inset: unset;
+    padding: 1rem;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: none;
+    border-radius: 7px;
+    color: #00BB77;
+}
+
+#popred:popover-open {
+    color: #b81414;
+}

@@ -14,10 +14,22 @@
     <title> pagina de exemplo de DOM </title>
 </head>
 <body>
-    <button type="button" popovertarget="pop">Abrir</button>
-
+    <form>
+        <fieldset>
+            <legend><h1>Faça parte da nossa newsletters</h1></legend>
+            <input type="email" name="email" id="email" placeholder="Cadastre seu e-mail">
+            <button type="submit">enviar</button>
+        </fieldset>
+    </form>
     <div id="pop" popover>
-        texto
+        <p>
+            Seu cadastro foi um sucesso!!!
+        </p>
+    </div>
+    <div id="popred" popover>
+        <p>
+            Seu cadastro foi um sucesso!!!
+        </p>
     </div>
 </body>
 </html>

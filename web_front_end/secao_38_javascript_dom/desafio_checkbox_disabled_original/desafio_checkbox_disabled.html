@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Javascript Completo 2018</title>
+</head>
+
+<body>
+    <h1 id="title1">Curso Javascript Completo</h1>
+
+    <main class="cmain" id="idmain">
+        <h2>subtitulo</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+    </main>
+
+    <form action="#">
+        <input type="text" id="txtNome" placeholder="nome"><br><br>
+        <input type="text" id="txtEmail" placeholder="email"><br><br>
+
+        <input type="checkbox" id="contrato">
+        <label for="contrato">Li e aceito o seguinte contrato</label><br><br>
+        <textarea aria-label="contrato" name="" id="" cols="30" rows="10" readonly>Este contrato nos dá direito à ...</textarea><br><br>
+        <input type="submit" value="cadastrar" disabled>
+    </form>
+
+    <script>
+        const check = document.querySelector('#contrato')
+        const inputSubmit = document.querySelector('input[type="submit"]')
+        
+        check.addEventListener('change', e => {
+            inputSubmit.disabled = !inputSubmit.disabled
+        })
+    </script>
+
+</body>
+
+</html>
