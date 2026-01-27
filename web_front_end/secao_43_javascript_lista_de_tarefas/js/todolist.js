@@ -53,7 +53,7 @@ function renderTasks(){
     const frag = document.createDocumentFragment()
     ul.replaceChildren()
     arrayTasks.forEach(task => {
-        const li = document.querySelector('.todo-item').cloneNode(true)
+         const li = document.querySelector('template').content.querySelector('.todo-item').cloneNode(true)
         li.dataset.id = task.id
         li.querySelector('.task-name').textContent = task.task
         task.done && li.querySelector('.button-check i').classList.remove('none')
@@ -69,14 +69,16 @@ document.addEventListener('DOMContentLoaded', e => {
 
 form.addEventListener('submit', e => {
     e.preventDefault()
-    const task = form.querySelector('#item-input').value
+    const task = form.querySelector('#item-input').value.trim()
     form.reset()
+
+    if(!task)return
 
     const objTask = CreateNewTasks(task)
 
     addTaskInArrayTasks(objTask)
     
-    const li = document.querySelector('.todo-item').cloneNode(true)
+    const li = document.querySelector('template').content.querySelector('.todo-item').cloneNode(true)
     li.dataset.id = objTask.id
     li.querySelector('.task-name').textContent = objTask.task
     li.querySelector('.button-check i').classList.add('none')
@@ -103,23 +105,23 @@ ul.addEventListener('click', e => {
     if(e.target.classList.contains('fa-edit')){
         const edit = e.target.parentElement.querySelector('.editContainer')
         edit.style.display = "block"
+    }
 
-        edit.addEventListener('click', e => {
-            if(e.target.classList.contains('cancelButton')){
-                edit.style.display = "none"
-            }
+    if(e.target.classList.contains('cancelButton')){
+        const edit = e.target.parentElement
+        edit.style.display = "none"
+    }
 
-            if(e.target.classList.contains('editButton')){ 
-                const id = e.currentTarget.parentElement.dataset.id
-                const newText = e.currentTarget.querySelector('.editInput').value
+    if(e.target.classList.contains('editButton')){
+        const edit = e.target.parentElement
+        const id = e.target.parentElement.parentElement.dataset.id
+        const newText = e.target.parentElement.parentElement.querySelector('.editInput').value.trim()
+        
+        if(!newText)return
 
-                if(!newText)return
-
-                e.currentTarget.parentElement.querySelector('.task-name').textContent = newText
-                updateTaskInArrayTaks(id, newText)
-                edit.style.display = "none"
-            }
-        })
+        e.target.parentElement.parentElement.querySelector('.task-name').textContent = newText
+        updateTaskInArrayTaks(id, newText)
+        edit.style.display = "none"
     }
 })
 
