@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  /* Cores de Fundo e Estrutura */
+  --bg-color: #e9ecef;
+  --container-bg: #f8f9fa;
+  --task-bg: #ffffff;
+  
+  /* Cores de Ação e Estados */
+  --primary-color: #4a90e2; /* Botão Add / Destaque */
+  --primary-hover: #357abd;
+  --done-color: #2ecc71;    /* Concluído / Sucesso */
+  --pending-color: #f39c12; /* Pendente / Alerta */
+  --danger-color: #e74c3c;  /* Remover / Erro */
+  --edit-color: #34495e;    /* Editar */
+
+  /* Cores de Texto e Input */
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+  --input-border: #dfe6e9;
+  --input-focus: #4a90e2;
+
+  /* Tipografia (Google Fonts) */
+  --font-main: 'Inter', sans-serif;
+  --font-size-base: 16px;
+  --font-size-task: 1rem;
+
+  /* Espaçamentos e Bordas */
+  --spacing-sm: .5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --radius-default: 12px;
+
+  /* Sombras e Efeitos */
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-color);
+}
