@@ -3,7 +3,7 @@
 :root {
   /* Cores de Fundo e Estrutura */
   --bg-color: #e9ecef;
-  --container-bg: #f8f9fa;
+  --container-bg: #7a7a7a;
   --task-bg: #ffffff;
   
   /* Cores de Ação e Estados */
@@ -26,10 +26,12 @@
   --font-size-task: 1rem;
 
   /* Espaçamentos e Bordas */
+  --spacing-sm-2: .25rem;
   --spacing-sm: .5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --radius-default: 12px;
+  --radius-round: 50%;
 
   /* Sombras e Efeitos */
   --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
@@ -46,5 +48,205 @@
 }
 
 body {
+    height: 100dvh;
     background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    height: fit-content;
+    max-width: 45rem;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--container-bg);
+    border-radius: var(--radius-default);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.addtask {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.addtask input {
+    flex: 1;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-default);
+    border: 4px solid transparent;
+    transition: var(--transition);
+}
+
+.addtask input:focus {
+    outline: none;
+    border: 4px solid var(--primary-color);
+}
+
+.addtask button {
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    border-radius: var(--radius-round);
+    background-color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.addtask button:hover {
+    background-color: var(--primary-hover);
+}
+
+.addtask button svg {
+    fill: var(--task-bg);
+}
+
+.list-taks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.item-tasks {
+    padding: var(--spacing-md);
+    background-color: var(--task-bg);
+    border: 4px solid var(--primary-color);
+    border-radius: var(--radius-default);
+}
+
+.item-tasks.done {
+    border-color: var(--done-color);
+}
+
+.item-tasks article {
+    display: flex;
+    align-items: center;
+}
+
+.item-tasks article b {
+    flex: 1;
+    color: var(--primary-color);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.actions button {
+    padding: var(--spacing-sm-2) var(--spacing-md);
+    border: none;
+    border-radius: var(--radius-default);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.actions button svg {
+    fill: #fff;
+    pointer-events: none;
+}
+
+.button-done {
+    background-color: var(--done-color);
+}
+
+.button-done:hover {
+    filter: brightness(0.7);
+}
+
+.button-edit {
+    background-color: var(--pending-color);
+}
+
+.button-edit:hover {
+    filter: brightness(0.7);
+}
+
+.button-remove {
+    background-color: var(--danger-color);
+}
+
+.button-remove::hover {
+    filter: brightness(0.7);
+}
+
+dialog {
+    position: fixed;
+    margin: var(--spacing-lg) auto; 
+    inset: 0;
+    width: 90%;
+    max-width: 450px;
+    padding: var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-default);    
+}
+
+dialog div {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+dialog div input {
+    flex: 1;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-default);
+    border: 4px solid var(--container-bg);
+    transition: var(--transition);
+}
+
+dialog div input:focus {
+    outline: none;
+    border: 4px solid var(--primary-color);
+}
+
+dialog div .button-up {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: var(--radius-round);
+    background-color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+dialog div .button-up:hover {
+    background-color: var(--primary-hover);
+}
+
+dialog div .button-up svg {
+    fill: var(--task-bg);
+    pointer-events: none;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px); /* Efeito de desfoque moderno */
+}
+
+dialog[open] {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+dialog .button-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+dialog .button-close svg {
+    fill: var(--danger-color);
 }
