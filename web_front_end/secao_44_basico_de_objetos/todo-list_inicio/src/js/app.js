@@ -1,8 +1,10 @@
 import { Tasks } from './Tasks.js'
 import { Render } from './Render.js'
+import { LocalStore } from './LocaStore.js'
 
 const tasks = new Tasks()
 const render = new Render()
+const local = new LocalStore()
 
 const form = document.querySelector('.addtask')
 const ul = document.querySelector('.list-taks')
@@ -12,8 +14,8 @@ const buttonClose = document.querySelector('.button-close')
 
 
 document.addEventListener("DOMContentLoaded", e => {
-    const arrTasks = tasks.returnArrTasks()
-    console.log(arrTasks)
+    const arrTasks = local.getArrTasks()
+   
     render.renderListTasks(arrTasks)
 })
 
@@ -31,19 +33,22 @@ form.addEventListener('submit', e => {
     const arrTasks = tasks.addNewTask(newTask)
 
     render.renderListTasks(arrTasks)
+    local.setArrtasks(arrTasks)
 })
 
 ul.addEventListener('click', e => {
     if(e.target.closest('.button-done')){
         const id = e.target.closest('.item-tasks').dataset.id
-        const arrTaks = tasks.updateCompleted(id)
-        render.renderListTasks(arrTaks)
+        const arrTasks = tasks.updateCompleted(id)
+        render.renderListTasks(arrTasks)
+        local.setArrtasks(arrTasks)
     }
 
     if(e.target.closest('.button-remove')){
         const id = e.target.closest('.item-tasks').dataset.id
         const arrTasks = tasks.removeTask(id)
         render.renderListTasks(arrTasks)
+        local.setArrtasks(arrTasks)
     }
 
     if(e.target.closest('.button-edit')){
@@ -73,4 +78,5 @@ buttonUpdate.addEventListener('click', e => {
     const arrTasks = tasks.updateName(id, name)
     render.renderListTasks(arrTasks)
     dialog.close()
+    local.setArrtasks(arrTasks)
 })

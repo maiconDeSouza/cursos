@@ -1,28 +1,6 @@
 export class Tasks {
-    constructor(){
-        this.arrayTasks = [
-            {
-                id: 'f72d4b1a-8e2c-4b9a-9d3e-5f1a2b3c4d5e',
-                name: "task 1",
-                completed: false,
-                createdAt: 1592667375012,
-                updatedAt: null
-            },
-            {
-                id: 'a1b2c3d4-e5f6-4a5b-9c8d-7e6f5a4b3c2d',
-                name: "task 2",
-                completed: false,
-                createdAt: 1581667345723,
-                updatedAt: 1592667325018
-            },
-            {
-                id: '8c9d0e1f-2a3b-4c5d-ae6f-7a8b9c0d1e2f',
-                name: "task 3",
-                completed: false,
-                createdAt: 1592667355018,
-                updatedAt: 1593677457010
-            }
-        ]
+    constructor(arrTasks=[]){
+        this.arrayTasks = arrTasks
     }
 
     returnArrTasks(){
