@@ -17,4 +17,10 @@ func main() {
 	fmt.Println(slice1)
 	fmt.Println(slice2)
 
+	slice3 := make([]string, 0, 4)
+	slice3 = append(slice3, "Dante", "Dona Maia")
+	fmt.Println(slice3, len(slice3), cap(slice3))
+	slice3 = append(slice3, "Delinha", "Taluzinha", "Tachorrin")
+	fmt.Println(slice3, len(slice3), cap(slice3))
+
 }
