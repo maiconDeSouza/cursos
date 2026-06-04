@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"math/rand"
 	"os"
@@ -44,46 +45,46 @@ func (g Games) raffle() []uint {
 
 func clear() {
 	var cmd *exec.Cmd
-
-	// Detecta o sistema operacional atual
 	if runtime.GOOS == "windows" {
 		cmd = exec.Command("cmd", "/c", "cls")
 	} else {
-		// Funciona para Linux, macOS, Unix, etc.
 		cmd = exec.Command("clear")
 	}
 
-	// Vincula a saída do comando direto no terminal atual
 	cmd.Stdout = os.Stdout
 	cmd.Run()
 }
 
-func responseGame(op string) (string, bool) {
-	megaSena := Games{name: "MegaSena", total: 60, mark: 6}
-	lotofacil := Games{name: "Lotofácil", total: 25, mark: 15}
-	quina := Games{name: "Quina", total: 80, mark: 5}
-	lotomania := Games{name: "Lotomania", total: 100, mark: 50}
+func sleep(s uint) {
+	time.Sleep(time.Duration(s) * time.Second)
+}
 
-	var response string
-	e := false
+func responseGame(op string, r *string) error {
+	var err error
 
 	switch op {
 	case "1":
-		response = fmt.Sprintf("Os números da Sorte da Mega-sena %v\n", megaSena.raffle())
+		megaSena := Games{name: "MegaSena", total: 60, mark: 6}
+		*r = fmt.Sprintf("Os números da Sorte da Mega-sena %v\n", megaSena.raffle())
 	case "2":
-		response = fmt.Sprintf("Os números da Sorte da Lotofácil %v\n", lotofacil.raffle())
+		lotofacil := Games{name: "Lotofácil", total: 25, mark: 15}
+		*r = fmt.Sprintf("Os números da Sorte da Lotofácil %v\n", lotofacil.raffle())
 	case "3":
-		response = fmt.Sprintf("Os números da Sorte da Quina %v\n", quina.raffle())
+		quina := Games{name: "Quina", total: 80, mark: 5}
+		*r = fmt.Sprintf("Os números da Sorte da Quina %v\n", quina.raffle())
 	case "4":
-		response = fmt.Sprintf("Os números da Sorte da Lotomania %v\n", lotomania.raffle())
+		lotomania := Games{name: "Lotomania", total: 100, mark: 50}
+		*r = fmt.Sprintf("Os números da Sorte da Lotomania %v\n", lotomania.raffle())
 	default:
-		response = fmt.Sprintln("Opção Invalida")
-		e = true
+		*r = fmt.Sprintln("Opção Invalida")
+		err = errors.New("Opção Invalida")
+
 	}
-	return response, e
+	return err
 }
 
 func main() {
+	var r string
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
@@ -107,19 +108,20 @@ func main() {
 
 		if op == "5" {
 			fmt.Println("Tchauuuuu!!!")
-			time.Sleep(time.Second)
+			sleep(3)
 			break
 		}
 
-		r, e := responseGame(op)
-
-		if e {
+		if err := responseGame(op, &r); err != nil {
 			fmt.Println(r)
 			fmt.Println("Tente novamente")
-			time.Sleep(time.Second)
+			sleep(3)
 			continue
 		}
 
+		fmt.Println("Aguarde um pouco o resultado...")
+		sleep(10)
+		clear()
 		fmt.Print(r)
 		break
 	}
