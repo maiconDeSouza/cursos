@@ -8,6 +8,20 @@ import (
 
 var conta = make(map[string]ContaBancaria)
 
+type senhaGerencia struct {
+	senha string
+}
+
+func (s senhaGerencia) LoginGerencia(senha string) error {
+	if s.senha != senha {
+		err := errors.New("Senha errada!")
+		return err
+	}
+	return nil
+}
+
+var Gerencia = senhaGerencia{senha: "1223"}
+
 type ContaBancaria interface {
 	Sacar(valor float64) error
 	Depositar(valor float64) error
@@ -147,4 +161,18 @@ func CriarConta(nome string, tipoDaConta string, senha string) (map[string]Conta
 		conta[numeroNovaConta] = &poupanca{nome: nome, saldo: 0, senha: senha}
 	}
 	return conta, numeroNovaConta
+}
+
+func BuscarConta(numero string) error {
+	if len(numero) < 5 || len(numero) > 5 {
+		err := errors.New("O número da conta deve ter 5 digitos!")
+		return err
+	}
+
+	_, existe := conta[numero]
+	if !existe {
+		err := errors.New("Conta não encontrada")
+		return err
+	}
+	return nil
 }
