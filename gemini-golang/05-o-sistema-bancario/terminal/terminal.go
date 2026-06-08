@@ -2,10 +2,12 @@ package terminal
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
 	"runtime"
+	"strconv"
 	"time"
 )
 
@@ -44,4 +46,13 @@ func NomeBanco() {
 	PrintTrace()
 	PrintTrace()
 	fmt.Println()
+}
+
+func ConverterValor(valor string) (float64, error) {
+	numero, err := strconv.ParseFloat(valor, 64)
+	if err != nil {
+		errSistema := errors.New("Você digitou o valor em forma errado. Tenhe digitar algo assim 250.00")
+		return 0.00, errSistema
+	}
+	return numero, nil
 }

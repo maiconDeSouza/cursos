@@ -27,6 +27,7 @@ type ContaBancaria interface {
 	Depositar(valor float64) error
 	ObterSaldo() float64
 	Senha(senha string) error
+	PegarNome() string
 }
 
 func OperacaoDeSaque(c ContaBancaria, valor float64) error {
@@ -55,6 +56,10 @@ func OperacaoDeSaldo(c ContaBancaria) float64 {
 
 func VerificarSenha(c ContaBancaria, senha string) error {
 	return c.Senha(senha)
+}
+
+func VerificarNome(c ContaBancaria) string {
+	return c.PegarNome()
 }
 
 type contaCorrente struct {
@@ -95,6 +100,10 @@ func (c contaCorrente) Senha(senha string) error {
 	return nil
 }
 
+func (c contaCorrente) PegarNome() string {
+	return c.nome
+}
+
 type poupanca struct {
 	nome  string
 	saldo float64
@@ -131,14 +140,16 @@ func (p poupanca) Senha(senha string) error {
 	return nil
 }
 
-func numeroDaConta() string {
-	n1 := (rand.Intn(100) + 1)
-	n2 := (rand.Intn(100) + 1)
-	n3 := (rand.Intn(100) + 1)
-	n4 := (rand.Intn(100) + 1)
-	n5 := (rand.Intn(100) + 1)
+func (p poupanca) PegarNome() string {
+	return p.nome
+}
 
-	return fmt.Sprintf("%d%d%d%d%d", n1, n2, n3, n4, n5)
+func numeroDaConta() string {
+	n1 := (rand.Intn(10))
+	n2 := (rand.Intn(10))
+	n3 := (rand.Intn(10))
+
+	return fmt.Sprintf("%d%d%d", n1, n2, n3)
 
 }
 
@@ -163,16 +174,22 @@ func CriarConta(nome string, tipoDaConta string, senha string) (map[string]Conta
 	return conta, numeroNovaConta
 }
 
-func BuscarConta(numero string) error {
-	if len(numero) < 5 || len(numero) > 5 {
-		err := errors.New("O número da conta deve ter 5 digitos!")
-		return err
+func BuscarConta(numero string) (ContaBancaria, error) {
+	if len(numero) != 3 {
+		err := errors.New("O número da conta deve ter 3 digitos!")
+		return nil, err
 	}
 
-	_, existe := conta[numero]
+	conta, existe := conta[numero]
 	if !existe {
 		err := errors.New("Conta não encontrada")
-		return err
+		return nil, err
 	}
-	return nil
+	return conta, nil
+}
+
+func TodasContas() {
+	for key, value := range conta {
+		fmt.Printf("Conta: [%s] - Nome: [%s] - Saldo: [%.2f]\n", key, value.PegarNome(), value.ObterSaldo())
+	}
 }
