@@ -27,8 +27,8 @@ var c Customer
 func getAllCustomers(w http.ResponseWriter, r *http.Request) {
 	c.gate.RLock()
 	defer c.gate.RUnlock()
-	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 
 	json.NewEncoder(w).Encode(c.customers)
 }
@@ -41,7 +41,7 @@ func getCustomer(w http.ResponseWriter, r *http.Request) {
 	for _, c := range c.customers {
 		if c.Holder == holderName {
 			w.Header().Set("Content-Type", "application/json")
-
+			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(c)
 			return
 		}
@@ -86,7 +86,7 @@ func requestMethods(w http.ResponseWriter, r *http.Request) {
 	case method == http.MethodPost:
 		createAccount(w, r)
 	default:
-		http.Error(w, "Contas não encontrada", http.StatusNotFound)
+		http.Error(w, "Contas não encontrada", http.StatusMethodNotAllowed)
 	}
 
 }
@@ -95,7 +95,8 @@ func init() {
 	j, err := os.ReadFile("accounts.json")
 
 	if err != nil {
-		panic("Erro ao ler o JSON: " + err.Error())
+		fmt.Println("Nenhum arquivo encontrado, iniciando banco de dados vazio...")
+		return
 	}
 
 	err = json.Unmarshal(j, &c.customers)
