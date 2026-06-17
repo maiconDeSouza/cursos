@@ -4,8 +4,8 @@
   "balance": 235.89
  },
  {
-  "holder": "Dante",
-  "balance": 235.89
+  "holder": "Dante Parrudo",
+  "balance": 1000
  },
  {
   "holder": "Maicon",
@@ -17,6 +17,10 @@
  },
  {
   "holder": "Taluzinha",
+  "balance": 2305.99
+ },
+ {
+  "holder": "Kiko",
   "balance": 2305.99
  }
 ]
