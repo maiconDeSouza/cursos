@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	http.HandleFunc("POST /api/v2/ships", handlers.CreateShip)
 	http.HandleFunc("GET /api/v2/ships", handlers.GetAllShips)
 	fmt.Println("Servidor rodando!")
 	http.ListenAndServe(":2005", nil)
