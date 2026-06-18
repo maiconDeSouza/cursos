@@ -16,6 +16,7 @@ func RequestMethods(w http.ResponseWriter, r *http.Request) {
 	case http.MethodPost:
 		createShip(w, r)
 	case http.MethodPut:
+		upShip(w, r)
 	case http.MethodDelete:
 	default:
 		http.Error(w, "Método não encontrado", http.StatusMethodNotAllowed)

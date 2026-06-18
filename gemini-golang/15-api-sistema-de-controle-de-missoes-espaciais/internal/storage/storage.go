@@ -25,7 +25,7 @@ func (st *Storage) GetSships() []*models.Ship {
 
 func (st *Storage) ShipExists(nameShip string) (*models.Ship, error) {
 	st.gate.RLock()
-	defer st.gate.Unlock()
+	defer st.gate.RUnlock()
 	for _, s := range st.ships {
 		if s.Name == nameShip {
 			return s, nil
