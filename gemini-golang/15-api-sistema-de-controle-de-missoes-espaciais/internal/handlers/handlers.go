@@ -18,6 +18,7 @@ func RequestMethods(w http.ResponseWriter, r *http.Request) {
 	case http.MethodPut:
 		upShip(w, r)
 	case http.MethodDelete:
+		Delete(w, r)
 	default:
 		http.Error(w, "Método não encontrado", http.StatusMethodNotAllowed)
 	}
@@ -64,6 +65,37 @@ func upShip(w http.ResponseWriter, r *http.Request) {
 	}
 
 	st.UPship(newSh.Name, newSh.Status, newSh.Active, sh)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(sh)
+}
+
+func Active(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Método não aceito", http.StatusMethodNotAllowed)
+		return
+	}
+
+	st := storage.StoageShips
+	activeTrue := st.ActiveShip()
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(activeTrue)
+}
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+	st := storage.StoageShips
+	shipName := r.URL.Query().Get("name")
+
+	sh, err := st.ShipExists(shipName)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	st.DeleteShip(sh)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)

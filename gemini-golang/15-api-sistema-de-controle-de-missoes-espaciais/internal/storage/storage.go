@@ -3,6 +3,7 @@ package storage
 import (
 	"api-sistema-de-controle-de-missoes-espaciais/internal/models"
 	"errors"
+	"slices"
 	"sync"
 )
 
@@ -49,6 +50,24 @@ func (st *Storage) UPship(upName, upStatus string, upActive bool, sh *models.Shi
 	if sh.Active != upActive {
 		sh.Active = upActive
 	}
+}
+
+func (st *Storage) ActiveShip() []models.Ship {
+	var active []models.Ship
+
+	for _, sh := range st.ships {
+		if sh.Active {
+			active = append(active, *sh)
+		}
+	}
+
+	return active
+}
+
+func (st *Storage) DeleteShip(shDelete *models.Ship) {
+	st.ships = slices.DeleteFunc(st.ships, func(sh *models.Ship) bool {
+		return sh.Name == shDelete.Name
+	})
 }
 
 var StoageShips = &Storage{}
