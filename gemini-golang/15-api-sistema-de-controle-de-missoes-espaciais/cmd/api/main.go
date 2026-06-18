@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/cmd/api/", handlers.RequestMethods)
-	http.HandleFunc("/cmd/api/active", handlers.Active)
+	http.HandleFunc("/api/v1/ships/", handlers.RequestMethods)
+	http.HandleFunc("/api/v1/ships/active", handlers.Active)
 	fmt.Println("Servidor rodando!!!")
 	http.ListenAndServe(":2005", nil)
 }

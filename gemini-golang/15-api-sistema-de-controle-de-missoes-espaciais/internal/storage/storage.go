@@ -53,6 +53,9 @@ func (st *Storage) UPship(upName, upStatus string, upActive bool, sh *models.Shi
 }
 
 func (st *Storage) ActiveShip() []models.Ship {
+	st.gate.RLock()
+	defer st.gate.RUnlock()
+
 	var active []models.Ship
 
 	for _, sh := range st.ships {
@@ -65,6 +68,8 @@ func (st *Storage) ActiveShip() []models.Ship {
 }
 
 func (st *Storage) DeleteShip(shDelete *models.Ship) {
+	st.gate.Lock()
+	defer st.gate.Unlock()
 	st.ships = slices.DeleteFunc(st.ships, func(sh *models.Ship) bool {
 		return sh.Name == shDelete.Name
 	})
