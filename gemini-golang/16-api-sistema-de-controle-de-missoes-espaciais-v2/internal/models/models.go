@@ -1,11 +1,6 @@
 package models
 
-import (
-	"api-sistema-de-controle-de-missoes-espaciais-v2/internal/storage"
-	"encoding/json"
-	"errors"
-	"io"
-)
+import "sync"
 
 type Ship struct {
 	Name   string `json:"name"`
@@ -13,14 +8,28 @@ type Ship struct {
 	Active bool   `json:"active"`
 }
 
-var st = storage.Storage{}
+var gate sync.RWMutex
 
-func (sh *Ship) CreateShip(body io.ReadCloser) error {
-	err := json.NewDecoder(body).Decode(sh)
-	if err != nil {
-		return errors.New("Erro ao ler o JSON")
+func (sh *Ship) UpName(name string) {
+	gate.Lock()
+	defer gate.Unlock()
+	if name != sh.Name && name != "" {
+		sh.Name = name
 	}
-	st.AddShip(sh)
+}
 
-	return nil
+func (sh *Ship) UpStatus(status string) {
+	gate.Lock()
+	defer gate.Unlock()
+	if status != sh.Status && status != "" {
+		sh.Status = status
+	}
+}
+
+func (sh *Ship) UpActive(active bool) {
+	gate.Lock()
+	defer gate.Unlock()
+	if active != sh.Active {
+		sh.Active = active
+	}
 }
