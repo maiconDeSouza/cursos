@@ -37,14 +37,10 @@ func EditShip(name string, body io.ReadCloser) (*models.Ship, error) {
 		return nil, errors.New("Erro ao ler o JSON")
 	}
 
-	sh, exist := st.ExistShip(name)
+	sh, exist := st.UpdateShip(name, &newSH)
 	if !exist {
 		return nil, errors.New("Nave não encontrada!")
 	}
-
-	sh.UpName(newSH.Name)
-	sh.UpStatus(newSH.Status)
-	sh.UpActive(newSH.Active)
 
 	return sh, nil
 }

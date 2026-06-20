@@ -68,3 +68,26 @@ func (st *Storage) DeleteShip(name string) (*models.Ship, bool) {
 
 	return sh, exist
 }
+
+func (st *Storage) UpdateShip(name string, newData *models.Ship) (*models.Ship, bool) {
+
+	st.gate.Lock()
+	defer st.gate.Unlock()
+
+	sh, exist := st.find(name)
+	if !exist {
+		return nil, false
+	}
+
+	if newData.Name != "" && newData.Name != sh.Name {
+		sh.Name = newData.Name
+	}
+
+	if newData.Status != "" && newData.Status != sh.Status {
+		sh.Status = newData.Status
+	}
+
+	sh.Active = newData.Active
+
+	return sh, true
+}
