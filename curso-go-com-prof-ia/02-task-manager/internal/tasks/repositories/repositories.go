@@ -12,8 +12,16 @@ type DB struct {
 	tasks map[int]models.Task
 }
 
-func (db *DB) IncrementID() {
+func (db *DB) incrementID() {
 	db.id++
+}
+
+func (db *DB) Salve(task *models.Task) models.Task {
+	db.incrementID()
+	task.ID = db.id
+	db.tasks[db.id] = *task
+
+	return *task
 }
 
 func (db *DB) GetAllTaks() []models.Task {
@@ -38,6 +46,18 @@ func (db *DB) GetTask(id int) (*models.Task, error) {
 	}
 
 	return nil, errors.New("Tarefa não encontrada!!!")
+}
+
+func (db *DB) DoneTask(id int) error {
+	task, exist := db.tasks[id]
+	if !exist {
+		return errors.New("Tarefa Inexistente!")
+	}
+
+	task.Done = !task.Done
+
+	db.tasks[id] = task
+	return nil
 }
 
 func NewDB() *DB {
