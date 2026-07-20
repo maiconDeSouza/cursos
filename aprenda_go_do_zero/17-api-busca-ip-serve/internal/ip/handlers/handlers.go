@@ -1,8 +1,9 @@
 package handlersIP
 
 import (
-	"api-busca-ip-serve/internal/interfaces"
+	"api-busca-ip-serve/internal/ip/interfaces"
 	"api-busca-ip-serve/internal/ip/models"
+
 	"encoding/json"
 	"net/http"
 )
