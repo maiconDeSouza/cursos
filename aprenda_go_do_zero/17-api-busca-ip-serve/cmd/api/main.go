@@ -1,10 +1,10 @@
 package main
 
 import (
-	handlersIP "api-busca-ip-serve/internal/ip/handlers"
+	handlersIP "api-busca-ip-serve/internal/ip/handlersIP"
 	servicesIP "api-busca-ip-serve/internal/ip/services"
 	"api-busca-ip-serve/internal/router"
-	handlersServer "api-busca-ip-serve/internal/server/handlers"
+	handlersServer "api-busca-ip-serve/internal/server/handlersServer"
 	servicesServer "api-busca-ip-serve/internal/server/services"
 	"fmt"
 	"log"
