@@ -24,6 +24,6 @@ func main() {
 		escrevendo("Programando em Go!")
 	})
 
-	// wg.Wait()
+	wg.Wait()
 
 }
