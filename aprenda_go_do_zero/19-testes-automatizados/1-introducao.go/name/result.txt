@@ -1,7 +1,0 @@
-mode: set
-1-introducao/name/processName.go:7.38,12.29 4 1
-1-introducao/name/processName.go:12.29,14.3 1 1
-1-introducao/name/processName.go:16.2,16.43 1 1
-1-introducao/name/validName.go:3.34,5.19 1 1
-1-introducao/name/validName.go:5.19,7.3 1 1
-1-introducao/name/validName.go:9.2,9.14 1 1
