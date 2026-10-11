@@ -6,6 +6,7 @@ import (
 )
 
 var ErrEmailAlreadyInUse = errors.New("E-mail em uso")
+var ErrUserNotFound = errors.New("Usuário não encontrado")
 
 type ErrResponse struct {
 	Message string `json:"message"`
