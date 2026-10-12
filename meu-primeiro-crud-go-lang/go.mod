@@ -25,6 +25,7 @@ require (
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/gohugoio/hashstructure v0.6.0 // indirect
 	github.com/gohugoio/hugo v0.164.0 // indirect
+	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/leodido/go-urn v1.5.0 // indirect

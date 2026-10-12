@@ -16,6 +16,9 @@ import (
 type RepositoriesInterface interface {
 	Create(user *models.User) error
 	FindByID(id uuid.UUID) (*models.User, error)
+	FindByEmail(email string) (*models.User, error)
+	Update(id uuid.UUID, user models.User) error
+	Delete(id uuid.UUID) error
 }
 
 type Repositories struct {

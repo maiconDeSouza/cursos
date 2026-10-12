@@ -11,11 +11,19 @@ type User struct {
 }
 
 type UserRequest struct {
-	Name           string `json:"name" validate:"required"`
+	Name           string `json:"name" validate:"required,min=4,max=25"`
 	Email          string `json:"email" validate:"required,email"`
 	Age            uint8  `json:"age" validate:"required,min=1,max=140"`
 	Password       string `json:"password" validate:"required,min=4,max=55"`
 	RepeatPassword string `json:"repeatPassword" validate:"required,min=4,max=55"`
+}
+
+type UserUpdate struct {
+	Name           *string `json:"name" validate:"omitempty,min=4,max=25"`
+	Email          *string `json:"email" validate:"omitempty,email"`
+	Age            *uint8  `json:"age" validate:"omitempty,min=1,max=140"`
+	Password       *string `json:"password" validate:"omitempty,min=4,max=55"`
+	RepeatPassword *string `json:"repeatPassword" validate:"omitempty,min=4,max=55"`
 }
 
 type UserResponse struct {
@@ -23,4 +31,9 @@ type UserResponse struct {
 	Name  string    `json:"name"`
 	Email string    `json:"email"`
 	Age   uint8     `json:"age"`
+}
+
+type UserLogin struct {
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"required,min=4,max=55"`
 }
