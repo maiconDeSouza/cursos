@@ -12,11 +12,15 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/golang-jwt/jwt/v5"
+	"go.mongodb.org/mongo-driver/bson"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type ServicesInterface interface {
 	CreateUser(UserRequest *models.UserRequest) (*models.UserResponse, *errapp.ErrResponse)
+	LoginUser(userLogin models.UserLogin) (*models.UserResponse, *http.Cookie, *errapp.ErrResponse)
+	UpdateUser(id uuid.UUID, userUpdate models.UserUpdate) (*models.UserResponse, *errapp.ErrResponse)
+	DeleteUser(id uuid.UUID) *errapp.ErrResponse
 }
 
 type Services struct {
@@ -156,41 +160,48 @@ func (s *Services) LoginUser(userLogin models.UserLogin) (*models.UserResponse, 
 }
 
 func (s *Services) UpdateUser(id uuid.UUID, userUpdate models.UserUpdate) (*models.UserResponse, *errapp.ErrResponse) {
-	user := models.User{}
 	if err := s.validate.Struct(userUpdate); err != nil {
 		errApp := errapp.NewBadRequestError("Problema nos campos", err)
 		return nil, errApp
 	}
 
+	updateFields := bson.M{}
+
 	if userUpdate.Password != nil {
-		if userUpdate.Password != userUpdate.RepeatPassword {
-			errApp := errapp.NewBadRequestError("A senhas devem ser iguais", nil)
+		if userUpdate.RepeatPassword == nil || *userUpdate.Password != *userUpdate.RepeatPassword {
+			errApp := errapp.NewBadRequestError("As senhas devem ser iguais", nil)
 			return nil, errApp
 		}
+
 		hash, err := s.hashPassword(*userUpdate.Password)
 		if err != nil {
 			errApp := errapp.NewInternalServerError("Erro do servidor", err)
 			return nil, errApp
 		}
-		user.Password = hash
+		updateFields["password"] = hash
 	}
 
 	if userUpdate.Name != nil {
-		user.Name = *userUpdate.Name
+		updateFields["name"] = *userUpdate.Name
 	}
 
 	if userUpdate.Age != nil {
-		user.Age = *userUpdate.Age
+		updateFields["age"] = *userUpdate.Age
 	}
 
 	if userUpdate.Email != nil {
-		user.Email = *userUpdate.Email
+		updateFields["email"] = *userUpdate.Email
 	}
 
-	err := s.repo.Update(id, user)
+	if len(updateFields) == 0 {
+		errApp := errapp.NewBadRequestError("Nenhum campo fornecido para atualização", nil)
+		return nil, errApp
+	}
+
+	err := s.repo.Update(id, updateFields)
 	if err != nil {
 		if errors.Is(err, errapp.ErrUserNotFound) {
-			errApp := errapp.NewBadRequestError("Senha ou Login inválidos", err)
+			errApp := errapp.NewBadRequestError("Usuário não encontrado", err)
 			return nil, errApp
 		}
 		errApp := errapp.NewInternalServerError("Erro do servidor", err)
@@ -198,11 +209,18 @@ func (s *Services) UpdateUser(id uuid.UUID, userUpdate models.UserUpdate) (*mode
 	}
 
 	userResponse := models.UserResponse{
-		ID:    user.ID,
-		Name:  user.Name,
-		Email: user.Email,
-		Age:   user.Age,
+		ID: id,
 	}
+	if userUpdate.Name != nil {
+		userResponse.Name = *userUpdate.Name
+	}
+	if userUpdate.Email != nil {
+		userResponse.Email = *userUpdate.Email
+	}
+	if userUpdate.Age != nil {
+		userResponse.Age = *userUpdate.Age
+	}
+
 	return &userResponse, nil
 }
 

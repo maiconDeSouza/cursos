@@ -17,7 +17,7 @@ type RepositoriesInterface interface {
 	Create(user *models.User) error
 	FindByID(id uuid.UUID) (*models.User, error)
 	FindByEmail(email string) (*models.User, error)
-	Update(id uuid.UUID, user models.User) error
+	Update(id uuid.UUID, updateFields bson.M) error
 	Delete(id uuid.UUID) error
 }
 
@@ -91,12 +91,12 @@ func (r *Repositories) FindByEmail(email string) (*models.User, error) {
 	return &user, nil
 }
 
-func (r *Repositories) Update(id uuid.UUID, user models.User) error {
+func (r *Repositories) Update(id uuid.UUID, updateFields bson.M) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	filter := bson.M{"_id": id}
-	update := bson.M{"$set": user}
+	update := bson.M{"$set": updateFields}
 
 	result, err := r.collection.UpdateOne(ctx, filter, update)
 	if err != nil {

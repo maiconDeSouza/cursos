@@ -33,3 +33,7 @@ func NewNotFoundError(msg string, err error) *ErrResponse {
 func NewForbiddenrError(msg string, err error) *ErrResponse {
 	return &ErrResponse{Message: msg, Err: err, Code: http.StatusForbidden}
 }
+
+func NewUnauthorizedError(msg string, err error) *ErrResponse {
+	return &ErrResponse{Message: msg, Err: err, Code: http.StatusUnauthorized}
+}

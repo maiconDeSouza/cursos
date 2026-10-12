@@ -1,0 +1,42 @@
+@base_url = http://127.0.0.1:2005
+
+### 1. Rota Teste
+GET {{base_url}}/ 
+
+### 2. Criar User
+POST {{base_url}}/user 
+Content-Type: application/json
+
+{
+  "name": "Dante",
+  "email": "dante@vidaloka.com.br",
+  "age": 5,
+  "password": "senha123",
+  "repeatPassword": "senha123"
+}
+
+### 3. Login User
+# @name login
+POST {{base_url}}/user/login 
+Content-Type: application/json
+
+{
+  "email": "dante@vidaloka.com.br",
+  "password": "senha123"
+}
+
+
+### 4. Update User
+PUT  {{base_url}}/user/update
+Cookie: {{login.response.headers.Set-Cookie}}
+Content-Type: application/json
+
+{
+  "name": "Dante",
+  "age": 6
+}
+
+### 5. delete User
+DELETE {{base_url}}/user/delete
+Content-Type: application/json
+Cookie: {{login.response.headers.Set-Cookie}}

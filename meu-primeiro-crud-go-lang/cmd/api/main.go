@@ -3,6 +3,7 @@ package main
 import (
 	"meu-primeiro-crud-go-lang/internal/config"
 	"meu-primeiro-crud-go-lang/internal/handlers"
+	"meu-primeiro-crud-go-lang/internal/middleware"
 	"meu-primeiro-crud-go-lang/internal/repositories"
 	"meu-primeiro-crud-go-lang/internal/router"
 	"meu-primeiro-crud-go-lang/internal/services"
@@ -20,7 +21,8 @@ func main() {
 	repo := repositories.NewRepositories(cfg.ClientDB, &cfg)
 	services := services.NewServices(repo, &cfg)
 	handlers := handlers.NewHandlers(services, &cfg)
-	routes := router.NewRoutes(cfg.Mux, handlers, &cfg)
+	middleware := middleware.NewMiddleware(&cfg)
+	routes := router.NewRoutes(cfg.Mux, handlers, *middleware, &cfg)
 	routes.InitRoutes()
 
 	cfg.Log.Info("🚀 Servidor iniciado com sucesso na porta", "port", cfg.Env.SERVER_PORT)
