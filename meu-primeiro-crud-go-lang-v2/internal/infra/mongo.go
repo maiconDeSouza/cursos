@@ -7,6 +7,7 @@ import (
 	"meu-primeiro-crud-go-lang-v2/internal/config"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -36,5 +37,17 @@ func NewConnectMongo(env *config.Env) *mongo.Collection {
 
 	fmt.Println("✅ Conectado ao banco de dados com sucesso!")
 
-	return client.Database(env.MONGO_DB_NAME).Collection(env.MONGO_COLLECTION)
+	collection := client.Database(env.MONGO_DB_NAME).Collection(env.MONGO_COLLECTION)
+
+	indexModel := mongo.IndexModel{
+		Keys:    bson.D{{Key: "email", Value: 1}},
+		Options: options.Index().SetUnique(true),
+	}
+
+	_, err = collection.Indexes().CreateOne(ctx, indexModel)
+	if err != nil {
+		log.Fatal("❌ Erro ao criar índice único para e-mail: ", err)
+	}
+
+	return collection
 }
