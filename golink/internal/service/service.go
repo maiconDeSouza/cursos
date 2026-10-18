@@ -17,6 +17,11 @@ type UserServiceInterface interface {
 	Login(login *model.Login) (*http.Cookie, *model.LoginResponse, *errapp.ErrResponse)
 }
 
+type LinkServiceInterface interface {
+	CreateLink(userID uuid.UUID, linkRequest model.LinkRequest) (*model.LinkResponse, *errapp.ErrResponse)
+	Redirect(title string) (*model.LinkResponse, *errapp.ErrResponse)
+}
+
 func hashPassword(password string) (string, error) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
@@ -76,4 +81,27 @@ func userToUserResponse(user *model.User) *model.UserResponse {
 		CreatedAt: user.CreatedAt,
 	}
 	return &userResponse
+}
+
+func linkRequestToLink(linkResquest model.LinkRequest, userID uuid.UUID) *model.Link {
+	link := model.Link{
+		ID:        uuid.New(),
+		Title:     linkResquest.Title,
+		URL:       linkResquest.URL,
+		UserID:    userID,
+		CreatedAt: time.Now(),
+	}
+
+	return &link
+}
+
+func linkToLinkResponse(link model.Link) *model.LinkResponse {
+	linkResponse := model.LinkResponse{
+		ID:        link.ID,
+		Title:     link.Title,
+		URL:       link.URL,
+		UserID:    link.UserID,
+		CreatedAt: link.CreatedAt,
+	}
+	return &linkResponse
 }

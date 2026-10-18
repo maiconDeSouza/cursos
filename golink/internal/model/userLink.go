@@ -32,10 +32,15 @@ type Link struct {
 	CreatedAt time.Time `bson:"created_at"`
 }
 
-type LinkReqAndRes struct {
+type LinkRequest struct {
+	Title string `json:"title" validate:"required,gte=3,lte=50"`
+	URL   string `json:"url" validate:"required,url"`
+}
+
+type LinkResponse struct {
 	ID        uuid.UUID `json:"id"`
-	Title     string    `json:"title" validate:"required,gte=3,lte=50"`
-	URL       string    `json:"url" validate:"required,url"`
+	Title     string    `json:"title"`
+	URL       string    `json:"url"`
 	UserID    uuid.UUID `json:"user_id"`
 	CreatedAt time.Time `json:"created_at"`
 }
