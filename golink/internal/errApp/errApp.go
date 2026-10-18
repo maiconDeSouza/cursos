@@ -6,9 +6,10 @@ import (
 )
 
 var (
-	ErrEmailAlreadyInUse = errors.New("E-mail em uso")
-	ErrUserNotFound      = errors.New("Usuário não encontrado")
-	ErrNoDocuments       = errors.New("Pagina não encontrada")
+	ErrEmailAlreadyInUse  = errors.New("E-mail em uso")
+	ErrTitleAlreadyInLink = errors.New("título já em uso")
+	ErrUserNotFound       = errors.New("Usuário não encontrado")
+	ErrLinkNotFound       = errors.New("Link não encontrado")
 )
 
 type ErrResponse struct {
