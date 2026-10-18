@@ -1,11 +1,14 @@
 package service
 
 import (
+	"golink/internal/config"
 	errapp "golink/internal/errApp"
 	"golink/internal/model"
+	"net/http"
 	"time"
 	"uuid"
 
+	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -25,6 +28,34 @@ func checkPasswordHash(password, hash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 
 	return err == nil
+}
+
+func generateJWT(id uuid.UUID, env *config.ENV) (string, error) {
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"sub": id,
+		"exp": time.Now().Add(time.Hour).Unix(),
+	})
+
+	tokenString, err := token.SignedString([]byte(env.JWT_SECRET_KEY))
+	if err != nil {
+		return "", err
+	}
+
+	return tokenString, nil
+}
+
+func generateCookie(jwt string) *http.Cookie {
+	cookie := &http.Cookie{
+		Name:     "session_token_user",
+		Value:    jwt,
+		Path:     "/",
+		Expires:  time.Now().Add(time.Hour),
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteLaxMode,
+	}
+
+	return cookie
 }
 
 func userRequestToUser(userRequest *model.UserRequest) *model.User {

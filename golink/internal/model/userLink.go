@@ -14,8 +14,8 @@ type User struct {
 
 type UserRequest struct {
 	Email          string `json:"email" validate:"required,email"`
-	Password       string `json:"password" validate:"required,min=5,max=25"`
-	RepeatPassword string `json:"repeat_password" validate:"required,min=5,max=25"`
+	Password       string `json:"password" validate:"required,gte=5,lte=25"`
+	RepeatPassword string `json:"repeat_password" validate:"required,gte=5,lte=25"`
 }
 
 type UserResponse struct {
@@ -34,8 +34,18 @@ type Link struct {
 
 type LinkReqAndRes struct {
 	ID        uuid.UUID `json:"id"`
-	Title     string    `json:"title" validate:"required,min=3,max=50"`
+	Title     string    `json:"title" validate:"required,gte=3,lte=50"`
 	URL       string    `json:"url" validate:"required,url"`
 	UserID    uuid.UUID `json:"user_id"`
 	CreatedAt time.Time `json:"created_at"`
+}
+
+type Login struct {
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"required,gte=5,lte=25"`
+}
+
+type LoginResponse struct {
+	ID    uuid.UUID `json:"id"`
+	Email string    `json:"email"`
 }
