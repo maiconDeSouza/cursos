@@ -16,6 +16,7 @@ type ENV struct {
 	MONGO_ROOT_PASSWORD    string
 	MONGO_PORT             string
 	JWT_SECRET_KEY         string
+	USER_SUB_KEY           string
 }
 
 func InitENV() *ENV {
@@ -31,5 +32,6 @@ func InitENV() *ENV {
 		MONGO_ROOT_PASSWORD:    os.Getenv("MONGO_ROOT_PASSWORD"),
 		MONGO_PORT:             os.Getenv("MONGO_PORT"),
 		JWT_SECRET_KEY:         os.Getenv("JWT_SECRET_KEY"),
+		USER_SUB_KEY:           os.Getenv("USER_SUB_KEY"),
 	}
 }

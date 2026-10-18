@@ -14,6 +14,7 @@ import (
 
 type UserServiceInterface interface {
 	Register(userRequest *model.UserRequest) (*model.UserResponse, *errapp.ErrResponse)
+	Login(login *model.Login) (*http.Cookie, *model.LoginResponse, *errapp.ErrResponse)
 }
 
 func hashPassword(password string) (string, error) {
