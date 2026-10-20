@@ -20,7 +20,8 @@ type UserServiceInterface interface {
 type LinkServiceInterface interface {
 	CreateLink(userID uuid.UUID, linkRequest model.LinkRequest) (*model.LinkResponse, *errapp.ErrResponse)
 	Redirect(title string) (*model.LinkResponse, *errapp.ErrResponse)
-	Update(id uuid.UUID, linkUpdate *model.LinkUpdate) (*model.LinkResponse, *errapp.ErrResponse)
+	Update(id uuid.UUID, userID uuid.UUID, linkUpdate *model.LinkUpdate) (*model.LinkResponse, *errapp.ErrResponse)
+	Delete(id uuid.UUID, userID uuid.UUID) *errapp.ErrResponse
 }
 
 func hashPassword(password string) (string, error) {

@@ -52,4 +52,6 @@ func (s *Server) routerUser() {
 func (s *Server) routerLink() {
 	s.mux.HandleFunc("POST /user/auth/link", s.middleware.AuthUser(s.linkHandler.CreateLink))
 	s.mux.HandleFunc("PUT /user/auth/link/{id}", s.middleware.AuthUser(s.linkHandler.Update))
+	s.mux.HandleFunc("DELETE /user/auth/link/{id}", s.middleware.AuthUser(s.linkHandler.Delete))
+
 }

@@ -16,4 +16,5 @@ type LinkRepositoryInterface interface {
 	FindByID(id uuid.UUID, link *model.Link) error
 	CountByUserID(user_id uuid.UUID) (int64, error)
 	Update(id uuid.UUID, link *model.Link) error
+	Delete(id uuid.UUID) error
 }

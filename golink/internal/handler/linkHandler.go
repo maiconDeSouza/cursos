@@ -51,6 +51,7 @@ func (h *LinkHandler) CreateLink(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *LinkHandler) Redirect(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	title := r.PathValue("title")
 
 	linkResponse, errRes := h.service.Redirect(title)
@@ -64,6 +65,16 @@ func (h *LinkHandler) Redirect(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *LinkHandler) Update(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	userIDString := r.Context().Value(h.env.USER_SUB_KEY).(string)
+	userID, err := uuid.Parse(userIDString)
+	if err != nil {
+		errRes := errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
 	idString := r.PathValue("id")
 	id, err := uuid.Parse(idString)
 	if err != nil {
@@ -82,7 +93,7 @@ func (h *LinkHandler) Update(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	linkResponse, errRes := h.service.Update(id, &linkUpdate)
+	linkResponse, errRes := h.service.Update(id, userID, &linkUpdate)
 	if errRes != nil {
 		w.WriteHeader(errRes.Code)
 		json.NewEncoder(w).Encode(errRes)
@@ -91,4 +102,32 @@ func (h *LinkHandler) Update(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(linkResponse)
+}
+
+func (h *LinkHandler) Delete(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	userIDString := r.Context().Value(h.env.USER_SUB_KEY).(string)
+	userID, err := uuid.Parse(userIDString)
+	if err != nil {
+		errRes := errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
+	idString := r.PathValue("id")
+	id, err := uuid.Parse(idString)
+	if err != nil {
+		errRes := errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
+	if errRes := h.service.Delete(id, userID); errRes != nil {
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+	w.WriteHeader(http.StatusOK)
 }

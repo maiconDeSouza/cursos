@@ -61,13 +61,17 @@ func (s *LinkService) Redirect(title string) (*model.LinkResponse, *errapp.ErrRe
 	return linkResponse, nil
 }
 
-func (s *LinkService) Update(id uuid.UUID, linkUpdate *model.LinkUpdate) (*model.LinkResponse, *errapp.ErrResponse) {
+func (s *LinkService) Update(id uuid.UUID, userID uuid.UUID, linkUpdate *model.LinkUpdate) (*model.LinkResponse, *errapp.ErrResponse) {
 	link := model.Link{}
 	if err := s.repo.FindByID(id, &link); err != nil {
 		if errors.Is(err, errapp.ErrLinkNotFound) {
 			return nil, errapp.NewNotFoundError("Página não encontrada", err)
 		}
 		return nil, errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+	}
+
+	if link.UserID != userID {
+		return nil, errapp.NewUnauthorizedError("Não autorizado essa ação", nil)
 	}
 
 	if len(linkUpdate.Title) > 0 {
@@ -94,4 +98,26 @@ func (s *LinkService) Update(id uuid.UUID, linkUpdate *model.LinkUpdate) (*model
 	linkResponse := linkToLinkResponse(link)
 
 	return linkResponse, nil
+}
+
+func (s *LinkService) Delete(id uuid.UUID, userID uuid.UUID) *errapp.ErrResponse {
+	link := model.Link{}
+	if err := s.repo.FindByID(id, &link); err != nil {
+		if errors.Is(err, errapp.ErrLinkNotFound) {
+			return errapp.NewNotFoundError("Página não encontrada", err)
+		}
+		return errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+	}
+
+	if link.UserID != userID {
+		return errapp.NewUnauthorizedError("Não autorizado essa ação", nil)
+	}
+
+	if err := s.repo.Delete(id); err != nil {
+		if errors.Is(err, errapp.ErrUserNotFound) {
+			return errapp.NewNotFoundError("Link não existe", err)
+		}
+		return errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+	}
+	return nil
 }

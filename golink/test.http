@@ -10,7 +10,7 @@ POST {{base_url}}/user
 Content-Type: application/json
 
 {
-  "email": "dante@vidaloka.com",
+  "email": "donamaia@vidaloka.com",
   "password": "Senha123",
   "repeat_password": "Senha123"
 }
@@ -22,7 +22,7 @@ POST {{base_url}}/user/login
 Content-Type: application/json
 
 {
-  "email": "dante@vidaloka.com",
+  "email": "donamaia@vidaloka.com",
   "password": "Senha123"
 }
 
@@ -41,6 +41,6 @@ PUT {{base_url}}/user/auth/link/da50f893-719b-4bef-8202-789d37cff849
 Cookie: {{login.response.headers.Set-Cookie}}
 
 {
-  "title": "video",
-  "url": "https://www.comprimirvideo.com.br/"
+  "title": "videos",
+  "url": "https://www.comprimirvideo.com.br"
 }
