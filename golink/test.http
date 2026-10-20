@@ -10,7 +10,7 @@ POST {{base_url}}/user
 Content-Type: application/json
 
 {
-  "email": "donamaia@gmail.com",
+  "email": "dante@vidaloka.com",
   "password": "Senha123",
   "repeat_password": "Senha123"
 }
@@ -22,7 +22,7 @@ POST {{base_url}}/user/login
 Content-Type: application/json
 
 {
-  "email": "donamaia@gmail.com",
+  "email": "dante@vidaloka.com",
   "password": "Senha123"
 }
 
@@ -32,6 +32,15 @@ POST {{base_url}}/user/auth/link
 Cookie: {{login.response.headers.Set-Cookie}}
 
 {
-  "title": "dona",
-  "url": "https://hortelatricot.com.br/?srsltid=AU7gw4UyqiNMxGMGBHY7M8oZkx8k7JE2m5cVmsdUH0JHIF_pdkZBO7JJ"
+  "title": "movee",
+  "url": "https://www.movement.com.br/"
+}
+
+### 5. Update Link
+PUT {{base_url}}/user/auth/link/da50f893-719b-4bef-8202-789d37cff849
+Cookie: {{login.response.headers.Set-Cookie}}
+
+{
+  "title": "video",
+  "url": "https://www.comprimirvideo.com.br/"
 }

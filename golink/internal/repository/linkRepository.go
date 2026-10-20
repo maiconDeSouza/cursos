@@ -54,6 +54,20 @@ func (r *LinkRepository) FindByTitle(title string, link *model.Link) error {
 	return nil
 }
 
+func (r *LinkRepository) FindByID(id uuid.UUID, link *model.Link) error {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(5)*time.Second)
+	defer cancel()
+
+	filter := bson.M{"_id": id}
+	if err := r.collection.FindOne(ctx, filter).Decode(link); err != nil {
+		if errors.Is(err, mongo.ErrNoDocuments) {
+			return errapp.ErrLinkNotFound
+		}
+		return err
+	}
+	return nil
+}
+
 func (r *LinkRepository) CountByUserID(user_id uuid.UUID) (int64, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(5)*time.Second)
 	defer cancel()
@@ -64,4 +78,23 @@ func (r *LinkRepository) CountByUserID(user_id uuid.UUID) (int64, error) {
 		return 0, err
 	}
 	return total, nil
+}
+
+func (r *LinkRepository) Update(id uuid.UUID, link *model.Link) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	filter := bson.M{"_id": id}
+	update := bson.M{"$set": link}
+
+	re, err := r.collection.UpdateOne(ctx, filter, update)
+	if err != nil {
+		return err
+	}
+
+	if re.MatchedCount == 0 {
+		return errapp.ErrLinkNotFound
+	}
+
+	return nil
 }

@@ -62,3 +62,33 @@ func (h *LinkHandler) Redirect(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, linkResponse.URL, http.StatusFound)
 }
+
+func (h *LinkHandler) Update(w http.ResponseWriter, r *http.Request) {
+	idString := r.PathValue("id")
+	id, err := uuid.Parse(idString)
+	if err != nil {
+		errRes := errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
+	linkUpdate := model.LinkUpdate{}
+
+	if err := json.NewDecoder(r.Body).Decode(&linkUpdate); err != nil {
+		errRes := errapp.NewBadRequestError("Erro no json: "+err.Error(), err)
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
+	linkResponse, errRes := h.service.Update(id, &linkUpdate)
+	if errRes != nil {
+		w.WriteHeader(errRes.Code)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(linkResponse)
+}

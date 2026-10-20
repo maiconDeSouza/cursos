@@ -10,4 +10,5 @@ type UserHandlerInterface interface {
 type LinkHandlerInterface interface {
 	CreateLink(w http.ResponseWriter, r *http.Request)
 	Redirect(w http.ResponseWriter, r *http.Request)
+	Update(w http.ResponseWriter, r *http.Request)
 }

@@ -37,6 +37,11 @@ type LinkRequest struct {
 	URL   string `json:"url" validate:"required,url"`
 }
 
+type LinkUpdate struct {
+	Title string `json:"title"`
+	URL   string `json:"url"`
+}
+
 type LinkResponse struct {
 	ID        uuid.UUID `json:"id"`
 	Title     string    `json:"title"`

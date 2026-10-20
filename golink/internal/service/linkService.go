@@ -60,3 +60,38 @@ func (s *LinkService) Redirect(title string) (*model.LinkResponse, *errapp.ErrRe
 
 	return linkResponse, nil
 }
+
+func (s *LinkService) Update(id uuid.UUID, linkUpdate *model.LinkUpdate) (*model.LinkResponse, *errapp.ErrResponse) {
+	link := model.Link{}
+	if err := s.repo.FindByID(id, &link); err != nil {
+		if errors.Is(err, errapp.ErrLinkNotFound) {
+			return nil, errapp.NewNotFoundError("Página não encontrada", err)
+		}
+		return nil, errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+	}
+
+	if len(linkUpdate.Title) > 0 {
+		if len(linkUpdate.Title) < 3 || len(linkUpdate.Title) > 50 {
+			return nil, errapp.NewBadRequestError("O Título deve ter mais do que duas letras e menos que 51", nil)
+		}
+		link.Title = linkUpdate.Title
+	}
+
+	if linkUpdate.URL != "" {
+		if err := s.validate.Var(linkUpdate.URL, "required,url"); err != nil {
+			return nil, errapp.NewBadRequestError("URL inválida", nil)
+		}
+		link.URL = linkUpdate.URL
+	}
+
+	if err := s.repo.Update(id, &link); err != nil {
+		if errors.Is(err, errapp.ErrLinkNotFound) {
+			return nil, errapp.NewNotFoundError("Página não encontrada", err)
+		}
+		return nil, errapp.NewInternalServerError("Problema no servidor: "+err.Error(), err)
+	}
+
+	linkResponse := linkToLinkResponse(link)
+
+	return linkResponse, nil
+}
