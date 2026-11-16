@@ -1,0 +1,29 @@
+package main
+
+import (
+	"html/template"
+	"os"
+)
+
+type Product struct {
+	Name  string
+	Price float64
+}
+
+var tmpl = `<p><b>Nome:</b> {{.Name}} | <b>Preço:</b> R${{.Price}}</p>`
+
+func main() {
+	p := Product{
+		Name:  "Caneta",
+		Price: 1.23,
+	}
+
+	t, err := template.New("Produto").Parse(tmpl)
+	if err != nil {
+		panic(err)
+	}
+
+	if err := t.Execute(os.Stdout, p); err != nil {
+		panic(err)
+	}
+}
