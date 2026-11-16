@@ -11,11 +11,7 @@ type Product struct {
 	Available bool
 }
 
-var tmpl = `{{if .Available}}
-        <p><b>Nome:</b> {{.Name}} | <b>Preço:</b> R${{.Price}}</p>
-    {{else}}
-        <p>Nada em estoque</p>
-    {{end}}`
+var tmpl = ``
 
 func main() {
 	p := Product{
